@@ -1,0 +1,76 @@
+﻿@using SQuadro.Models;
+@model SendDocumentsModel
+@{
+    Layout = null;
+    IUsersHelper IUsersHelper = new UsersHelper();
+}
+@using (Html.BeginForm("SendDocuments", "Partners", FormMethod.Post, new { @class = "form-horizontal", id = "formDetail" }))
+{
+    @Html.ValidationSummary(true)
+    if (ListsHelper.EmailSettingsList(IUsersHelper.CurrentUser.OrganizationID).Any())
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Sender, new { @class = "control-label col-lg-4", @for = "inputSender" })
+            <div class="col-lg-8">
+                @Html.DropDownListFor(m => m.Sender, ListsHelper.EmailSettingsList(IUsersHelper.CurrentUser.OrganizationID), new Dictionary<string, object>() { 
+                    { "id", "inputSender" },
+                    { "placeholder", "Select Sender" },
+                    { "class", "select2" },
+                    { "data-width", "100%" } })
+                @Html.ValidationMessageFor(m => m.Sender)
+            </div>
+        </div>
+    }
+    <div class="form-group select2-button-container">
+        <div class=" col-lg-4 text-right">
+            @Html.LabelFor(m => m.DocumentsSelection, new { @class = "control-label", @for = "inputDocumentsSelection" })
+            <a href="#" class="select2-show-link" onclick="$(this).closest('.select2-button-container').find('.select2').select2('open')"><i class="icon-search"></i></a>
+        </div>
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.DocumentsSelection, new Dictionary<string, object>() { 
+                { "id", "inputDocumentsSelection" }, 
+                { "placeholder", "Documents" }, 
+                { "class", "select2 ajax-select multi-choice single-line" }, 
+                { "data-feed", @Url.Action("GetDocumentsList", "Documents") }, 
+                { "data-init", @Url.Action("GetSelectedDocuments", "Documents") }
+            })
+            @Html.ValidationMessageFor(m => m.DocumentsSelection)
+        </div>
+    </div>
+    <div class="form-group select2-button-container">
+        <div class=" col-lg-4 text-right">
+            @Html.LabelFor(m => m.RecipientsSelection, new { @class = "control-label", @for = "inputRecipientsSelection" })
+            <a href="#" class="select2-show-link" onclick="$(this).closest('.select2-button-container').find('.select2').select2('open')"><i class="icon-search"></i></a>
+        </div>
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.RecipientsSelection, new Dictionary<string, object>() { 
+                { "id", "inputRecipientsSelection" }, 
+                { "placeholder", "Recipients" }, 
+                { "class", "select2 ajax-select multi-choice single-line" }, 
+                { "data-feed", @Url.Action("GetRecipientsList", "Partners") }, 
+                { "data-init", @Url.Action("GetSelectedRecipients", "Partners") }
+            })
+            @Html.ValidationMessageFor(m => m.RecipientsSelection)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Subject, new { @class = "control-label col-lg-4", @for = "inputTag" })
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.Subject, new Dictionary<string, object>() { { "id", "inputSubject" }, { "placeholder", "Click to select or type..." }, { "class", "select2 ajax-select add-new" }, { "data-feed", @Url.Action("GetList", "Subjects") }, { "data-init", @Url.Action("GetSelectedItem", "Subjects") }, { "data-add", @Url.Action("AddNew", "Subjects") } })
+            @Html.ValidationMessageFor(m => m.Subject)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-4">Send documents as</label>
+        <div class="col-lg-8">
+            <label class="radio-inline">
+                @Html.RadioButtonFor(m => m.SendAsanAttachment, true)
+                Attachment
+            </label>
+            <label class="radio-inline">
+                @Html.RadioButtonFor(m => m.SendAsanAttachment, false)
+                Link
+            </label>
+        </div>
+    </div>
+}

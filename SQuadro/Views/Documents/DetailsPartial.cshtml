@@ -1,0 +1,24 @@
+﻿@using SQuadro.Models
+@model DocumentModel
+<table class="table table-stripped responsive">
+    <thead>
+        <tr>
+            <th>@Html.LabelFor(m => m.Number)</th>
+            <th>@Html.LabelFor(m => m.DocumentType)</th>
+            <th>@Html.LabelFor(m => m.CreatedOn)</th>
+            <th>@Html.LabelFor(m => m.CreatedBy)</th>
+            <th>@Html.LabelFor(m => m.UpdatedOn)</th>
+            <th>@Html.LabelFor(m => m.UpdatedBy)</th>
+            <th>@Html.LabelFor(m => m.Comment)</th>
+        </tr>
+    </thead>
+    <tr>
+        <td class="text-left">@Html.Raw(Model.Number)</td>
+        <td class="text-left">@Html.Raw(Model.DocumentType)</td>
+        <td class="text-left">@Html.Raw(Model.CreatedOn.DateTime.ToShortDateString() + " " + Model.CreatedOn.DateTime.ToShortTimeString())</td>
+        <td class="text-left">@Html.Raw(Model.CreatedBy)</td>
+        <td class="text-left">@(Model.UpdatedOn.HasValue ? @Html.Raw(Model.UpdatedOn.Value.DateTime.ToShortDateString() + " " + Model.UpdatedOn.Value.DateTime.ToShortTimeString()) : null)</td>
+        <td class="text-left">@Html.DisplayFor(m => m.UpdatedBy)</td>
+        <td class="text-left">@Html.DisplayFor(m => m.Comment)</td>
+    </tr>
+</table>

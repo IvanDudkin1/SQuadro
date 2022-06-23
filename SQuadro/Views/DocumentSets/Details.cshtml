@@ -1,0 +1,34 @@
+﻿@using SQuadro.Models;
+@model DocumentSetModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("SetDocumentSetDetails", "DocumentSets", FormMethod.Post, new { @class = "form-horizontal", id = "formDetail" }))
+{
+    @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m => m.OrganizationID)
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-4", @for = "inputName" })
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.Name, new { id = "inputName", @class = "form-control", placeholder = "Input new Document Set name", autofocus = "autofocus" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group select2-button-container">
+        <div class=" col-lg-4 text-right">
+            @Html.LabelFor(m => m.Documents, new { @class = "control-label", @for = "inputDocuments" })
+            <a href="#" class="select2-show-link" onclick="$(this).closest('.select2-button-container').find('.select2').select2('open')"><i class="icon-search"></i></a>
+        </div>
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.Documents, new Dictionary<string, object>() {
+                { "id", "inputDocuments" },
+                { "placeholder", "Click to Select" },
+                { "class", "select2 ajax-select multi-choice single-line" },
+                { "data-feed", @Url.Action("GetDocumentsList", "Documents") },
+                { "data-init", @Url.Action("GetSelectedDocuments", "Documents") }
+            })
+            @Html.ValidationMessageFor(m => m.Documents)
+        </div>
+    </div>
+}

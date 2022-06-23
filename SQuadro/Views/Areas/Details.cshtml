@@ -1,0 +1,18 @@
+﻿@using SQuadro.Models;
+@model AreaModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("SetAreaDetails", "Areas", FormMethod.Post, new { @class = "form-horizontal", id = "formDetail" }))
+{
+    @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m => m.OrganizationID)
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-3", @for = "inputName" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(m => m.Name, new { id = "inputName", @class = "form-control", placeholder = "Input new Area name" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+}

@@ -1,0 +1,241 @@
+﻿.list-template
+{
+    position: relative;
+    background: #fff;
+}
+
+.dataTables_processing
+{
+    position: absolute;
+    font-weight: bolder;
+    color: Blue;
+    border: 1px solid Blue;
+    width: 120px;
+    height: 40px;
+    z-index: 20000;
+    background-color: White;
+    left: 50%;
+    top: 50px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    margin-left: -60px;
+    margin-top: -20px;
+}
+
+.list-header {
+    font-weight: 700;
+    font-size: 2.7em;
+    font-weight: bold;
+    color: #353535;
+    line-height: 1.5em;
+    /*min-height: 64px !important;*/
+    width: 850px;
+	float: left;
+}
+
+.list-header2 {
+	 font-weight: 700;
+    font-size: 2.7em;
+    font-weight: bold;
+    color: #353535;
+    line-height: 1.5em;
+    min-height: 64px !important;
+    width: 910px;
+	float: left;
+}
+
+.list-header span, .list-header2 span {
+    margin-left: -20px !important;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.deleteicon 
+{
+	background: url(img/search-bg.png) no-repeat 0 0 transparent;
+	border-radius: 2px;
+    position: relative;
+    margin-top: 10px;
+    /*padding: 20px 20px 0px 35px;*/
+    margin-right: -20px;
+    padding-right: 20px;
+}
+
+.deleteicon span {
+    position: absolute;
+    display: block;
+    top: 8px;
+    right: 23px;
+    width: 16px;
+    height: 16px;
+    background: url('img/delete.png') no-repeat center center;
+    cursor: pointer;
+    vertical-align: middle;
+}
+	
+table.dataTable tr:not(.row-details):hover > td,
+table.dataTable tr:not(.row-details):hover > th {
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 767px) 
+{
+    .list-header 
+    {
+        text-align: left;
+		margin-left:0;
+    }
+    
+    .deleteicon {
+	    background: #fff;
+        margin: 0;
+        padding: 0;
+	}
+    
+    .deleteicon span {
+        top: 7px;
+        right: 4px;
+    }
+	input.search-box {
+		margin-bottom:0;
+	}
+}
+
+.group-row
+{
+    font-weight: 700;
+}
+
+.total-row
+{
+    font-weight: 900;
+}
+
+.list-date-picker
+{
+    width: 100%;
+}
+
+table.dataTable
+{
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
+table.dataTable td {
+    padding: 5px 10px;
+}
+
+table.dataTable thead th
+{
+    border-bottom: 1px solid #aaa;
+	font-size: 80%;
+	text-transform: uppercase;
+}
+
+table.dataTable tr td, table.dataTable tr th
+{
+    vertical-align: middle;
+}
+
+table.dataTable tr td
+{
+    padding: 2px;
+}
+
+table.dataTable tr td .checkbox, table.dataTable tr th .checkbox
+{
+    margin: 2px;
+    padding-left: 10px;
+}
+
+table.dataTable tr.disabled td
+{
+    background-color: LightGray !important;
+}
+
+table.dataTable td.group 
+{
+    padding-top: 20px;
+    font-weight: bolder;
+}
+
+/*bootstrap overrides it for tables, so we need to override it */
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+td .btn
+{
+    margin-left: 2px;
+}
+
+.btn-fixed-50
+{
+    width: 50px;
+}
+
+.list-template .row
+{
+    padding-top: 10px;
+}
+
+.list-template .main-grid
+{
+    padding-top: 15px;
+}
+
+#ltGridView_People_wrapper.dataTables_wrapper .row { padding-top:10px; }
+
+.container .row .search {
+    background: #fff;
+    margin-top: 2px;
+    padding: 20px 20px 0 86px;
+    width: 194px;
+}
+
+.container .row .search2 {
+    background:#fff;
+    margin-top: 2px;
+    padding: 20px 20px 0 20px;
+    width: 194px;
+}
+
+.td-details-container
+{
+    background: DarkGray;
+}
+
+.td-details-container td
+{
+    font-size: 11px;
+    padding: 2px !important;
+}
+
+.dataTables_info
+{
+    margin-top: 5px;
+    font-size: 11px;
+}
+
+.dataTables_wrapper .row:last-child 
+{
+    font-size: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.filter-container > div
+{
+    padding: 1px;
+}
+
+.inline-action
+{
+    margin: 1px;
+}

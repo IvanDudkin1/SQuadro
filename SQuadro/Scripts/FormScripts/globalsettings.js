@@ -1,0 +1,3 @@
+﻿var globalSettings = {
+    root: null
+}

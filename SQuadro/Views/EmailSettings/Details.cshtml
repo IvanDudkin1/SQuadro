@@ -1,0 +1,71 @@
+﻿@using SQuadro.Models;
+@model EmailSettingsModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("SetEmailSettingsDetails", "EmailSettings", FormMethod.Post, new { @class = "form-horizontal", id = "formDetail" }))
+{
+    @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m => m.OrganizationID)
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-3", @for = "inputName" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(m => m.Name, new { id = "inputName", @class = "form-control", placeholder = "Input new Name" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "control-label col-lg-3", @for = "inputEmail" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(m => m.Email, new { id = "inputEmail", @class = "form-control", placeholder = "Input new Email Address" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+    </div>    
+    <div class="form-group">
+        <div class="col-lg-offset-3 col-lg-9">
+            <label class="checkbox-container">
+                @Html.HiddenFor(m => m.IsDefault, new { @class = "checkbox-value" })
+                <input type="checkbox" checked="@Model.IsDefault" onchange="$(this).closest('.checkbox-container').find('.checkbox-value').val(this.checked)"/> Default
+            </label>
+            @Html.ValidationMessageFor(m => m.IsDefault)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SmtpServer, new { @class = "control-label col-lg-3", @for = "inputSmtpServer" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(m => m.SmtpServer, new { id = "inputSmtpServer", @class = "form-control", placeholder = "Input Smtp Server name" })
+            @Html.ValidationMessageFor(m => m.SmtpServer)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SmtpPort, new { @class = "control-label col-lg-3", @for = "inputSmtpPort" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(m => m.SmtpPort, new { id = "inputSmtpPort", @class = "form-control", placeholder = "Input Smtp Port number" })
+            @Html.ValidationMessageFor(m => m.SmtpPort)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SmtpUser, new { @class = "control-label col-lg-3", @for = "inputSmtpUser" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(m => m.SmtpUser, new { id = "inputSmtpUser", @class = "form-control", placeholder = "Input Smtp User name" })
+            @Html.ValidationMessageFor(m => m.SmtpUser)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SmtpPassword, new { @class = "control-label col-lg-3", @for = "inputSmtpPassword" })
+        <div class="col-lg-9">
+            @Html.PasswordFor(m => m.SmtpPassword, new { id = "inputSmtpPassword", @class = "form-control", placeholder = "Input Smtp Password" })
+            @Html.ValidationMessageFor(m => m.SmtpPassword)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-3 col-lg-9">
+            <label class="checkbox-container">
+                @Html.HiddenFor(m => m.EnableSsl, new { @class = "checkbox-value" })
+                <input type="checkbox" checked="@Model.IsDefault" onchange="$(this).closest('.checkbox-container').find('.checkbox-value').val(this.checked)"/> Enable Ssl
+            </label>
+            @Html.ValidationMessageFor(m => m.EnableSsl)
+        </div>
+    </div>
+}

@@ -1,0 +1,312 @@
+﻿@using SQuadro.Models
+@{
+    IUsersHelper IUsersHelper = new UsersHelper();
+    var currentUser = IUsersHelper.CurrentUser; 
+}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <meta name="viewport" content="width=device-width" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,greek-ext,greek' rel='stylesheet' type='text/css'>
+        @Styles.Render("~/styles/themes")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/dataTables")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/lib")
+        @Scripts.Render("~/bundles/vendors")
+        <script type="text/javascript">
+            globalSettings.root = '@(Url.Content("~/"))';
+        </script>
+    </head>
+    <body>
+    <div class="navbar navbar-default" id="navbar">
+        <script type="text/javascript">
+            try { ace.settings.check('navbar', 'fixed') } catch (e) { }
+        </script>
+        <div class="navbar-container" id="navbar-container">
+            <div class="navbar-header">
+                <button type="button" id="menu-toggler" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Content("~/Home/Index")" class="navbar-brand">
+                    <small>
+                        <i class="icon-square"></i>
+                        S-Quadro
+                    </small>
+                </a>
+                <div id="logoff-container" class="pull-right">
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" id="btn-logout" class="navbar-toggle">
+                            <span class="lg-only">Logoff</span>
+                            <i class="icon-off"></i>
+                        </button>
+                    }
+                </div>
+                <span id="user-title" class="pull-right">
+                    <span class="name">@Html.Raw(currentUser.Name)</span>
+                </span>
+                <div class="selection-info pull-right hidden">
+                    <div class="checkbox"><label><input id="input-table-selection-clear" type="checkbox" class="select-all ace" /><span id="label-table-selection" class="lbl" title="Clear all selection"></span></label></div>
+                </div>
+            </div>
+            <!-- /.navbar-header -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <div class="main-container" id="main-container">
+        <script type="text/javascript">
+            try { ace.settings.check('main-container', 'fixed') } catch (e) { }
+        </script>
+        <div class="main-container-inner">
+            <div class="sidebar" id="sidebar">
+                <script type="text/javascript">
+                    try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
+                </script>
+                <ul class="nav nav-list">
+                    <li>
+                        <a href="#">
+                            <i class="icon-dashboard"></i>
+                            <span class="menu-text">Dashboard </span>
+                        </a>
+                    </li>
+                    @{
+                        // Companies
+                        <li id="@MainMenu.CompaniesGroup">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-group"></i>
+                                <span class="menu-text">@MainMenu.CompaniesGroup.Text</span>
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
+                            <ul class="submenu">
+                                <li id="@MainMenu.Companies">
+                                    <a href="@Url.Content("~/Partners/Index")">
+                                        <i class="icon-double-angle-right"></i>
+                                        @MainMenu.Companies.Text
+                                    </a>
+                                </li>
+                                <li id="@MainMenu.Areas">
+                                    <a href="@Url.Content("~/Areas/Index")">
+                                        <i class="icon-double-angle-right"></i>
+                                        @MainMenu.Areas.Text
+                                    </a>
+                                </li>
+                                <li id="@MainMenu.Categories">
+                                    <a href="@Url.Content("~/Categories/Index")">
+                                        <i class="icon-double-angle-right"></i>
+                                        @MainMenu.Categories.Text
+                                    </a>
+                                </li>
+                                <li id="@MainMenu.ContactTypes">
+                                    <a href="@Url.Content("~/ContactTypes/Index")">
+                                        <i class="icon-double-angle-right"></i>
+                                        @MainMenu.ContactTypes.Text
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        // Documents
+                        <li id="@MainMenu.DocumentsGroup">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-edit"></i>
+                                <span class="menu-text">@MainMenu.DocumentsGroup.Text</span>
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
+                            <ul class="submenu">
+                                <li id="@MainMenu.Documents">
+                                    <a href="@Url.Content("~/Documents/Index")">
+                                        <i class="icon-double-angle-right"></i>
+                                        @MainMenu.Documents.Text
+                                    </a>
+                                </li>
+                                <li id="@MainMenu.DocumentSets">
+                                    <a href="@Url.Content("~/DocumentSets/Index")">
+                                        <i class="icon-double-angle-right"></i>
+                                        @MainMenu.DocumentSets.Text
+                                    </a>
+                                </li>
+                                <li id="@MainMenu.DocumentTypes">
+                                    <a href="@Url.Content("~/DocumentTypes/Index")">
+                                        <i class="icon-double-angle-right"></i>
+                                        @MainMenu.DocumentTypes.Text
+                                    </a>
+                                </li>
+                                <li id="@MainMenu.DocumentStatuses">
+                                    <a href="@Url.Content("~/DocumentStatuses/Index")">
+                                        <i class="icon-double-angle-right"></i>
+                                        @MainMenu.DocumentStatuses.Text
+                                    </a>
+                                </li>
+                                <li id="@MainMenu.DocumentTags">
+                                    <a href="@Url.Content("~/Tags/Index")">
+                                        <i class="icon-double-angle-right"></i>
+                                        @MainMenu.DocumentTags.Text
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        // Related objects
+                        <li id="@MainMenu.RelatedObjectsGroup">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-exchange"></i>
+                                <span class="menu-text">@MainMenu.RelatedObjectsGroup.Text</span>
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
+                            <ul class="submenu">
+                                <li id="@MainMenu.Vessels">
+                                    <a href="@Url.Content("~/Vessels/Index")">
+                                        <i class="icon-double-angle-right"></i>
+                                        @MainMenu.Vessels.Text
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        // Settings  
+                        if (currentUser.Role == SQuadro.Models.SystemRole.Admin.Value)
+                        { 
+                            <li id="@MainMenu.SettingsGroup">
+                                <a href="#" class="dropdown-toggle">
+                                    <i class="icon-gears"></i>
+                                    <span class="menu-text">@MainMenu.SettingsGroup.Text</span>
+                                    <b class="arrow icon-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li id="@MainMenu.EmailSettings">
+                                        <a href="@Url.Content("~/EmailSettings/Index")">
+                                            <i class="icon-double-angle-right"></i>
+                                            @MainMenu.EmailSettings.Text
+                                        </a>
+                                    </li>
+                                    <li id="@MainMenu.EmailTemplates">
+                                        <a href="@Url.Content("~/EmailTemplates/Index")">
+                                            <i class="icon-double-angle-right"></i>
+                                            @MainMenu.EmailTemplates.Text
+                                        </a>
+                                    </li>
+                                    <li id="@MainMenu.Subjects">
+                                        <a href="@Url.Content("~/Subjects/Index")">
+                                            <i class="icon-double-angle-right"></i>
+                                            @MainMenu.Subjects.Text
+                                        </a>
+                                    </li>
+                                    <li id="ConvertDocuments">
+                                        <a href="@Url.Content("~/Documents/Convert")">
+                                            <i class="icon-double-angle-right"></i>
+                                            Convert Documents
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            // Administration
+                            <li id="@MainMenu.AdministrationGroup">
+                                <a href="#" class="dropdown-toggle">
+                                    <i class="icon-gears"></i>
+                                    <span class="menu-text">@MainMenu.AdministrationGroup.Text</span>
+                                    <b class="arrow icon-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li id="@MainMenu.Users">
+                                        <a href="@Url.Content("~/Users/Index")">
+                                            <i class="icon-double-angle-right"></i>
+                                            @MainMenu.Users.Text
+                                        </a>
+                                    </li>
+                                    <li id="@MainMenu.UserRoles">
+                                        <a href="@Url.Content("~/UserRoles/Index")">
+                                            <i class="icon-double-angle-right"></i>
+                                            @MainMenu.UserRoles.Text
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        <li id="@MainMenu.MyAccount">
+                            <a href="@Url.Content("~/Account/Manage")">
+                                <i class="icon-user"></i>
+                                    <span class="menu-text">Profile</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                </div>
+                <script type="text/javascript">
+                    try { ace.settings.check('sidebar', 'collapsed') } catch (e) { }
+                </script>
+            </div>
+            <div class="main-content">
+                <div class="page-content">
+                    <div class="page-wrapper">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.main-container  -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ajaxError(function (e, xhr) {
+        if (xhr.status == 401)
+            window.location.reload();
+        else if (xhr.status == 403)
+            alert("You have no enough permissions to request this resource.");
+    });
+
+    $(document).ready(function () {
+        var message = @(Html.Raw(Json.Encode(ViewBag.SuccessResult)));
+        if (message)
+            alerts.show(message);
+
+        var activeGroup = '@ViewBag.ActiveInterfaceGroup';
+        var activeItem = '@ViewBag.ActiveInterfaceItem';
+        if (activeGroup)
+            $('#' + activeGroup).addClass('active').addClass('open');
+        if (activeItem)
+            $('#' + activeItem).addClass('active');
+
+        service.applySelect2($('body'));
+
+        jQuery.validator.addClassRules({
+            custom_file_validation : { custom_file_validation : true }    
+        });
+
+        $(document).on('table-selection-changed', function(event, container) {
+            $selectionInfo = $('.selection-info');
+            if (container.any()) {
+                if ($selectionInfo.is('.hidden'))
+                    $selectionInfo.removeClass('hidden');                                    
+                $('#label-table-selection', $selectionInfo).text(container.getLength() + ' item(s) selected');
+                $('#input-table-selection-clear', $selectionInfo).data('table-selection-container', container).prop('checked', true);
+            }
+            else {
+                if (!$selectionInfo.is('.hidden'))
+                    $selectionInfo.addClass('hidden');
+                $('#label-table-selection', $selectionInfo).text('');
+                $('#input-table-selection-clear', $selectionInfo).removeData('table-selection-container').prop('checked', false);
+            }
+        });
+
+        $('#input-table-selection-clear').on('change', function() {
+            var $this = $(this);
+            var container = $this.data('table-selection-container');
+            if (!this.checked && container && container.clear)
+                container.clear();
+        });
+
+        $("body").tooltip({ selector: '[data-toggle="tooltip"]' });
+
+    });
+</script>

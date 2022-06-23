@@ -1,0 +1,32 @@
+﻿@using SQuadro.Models;
+@model ContactTypeModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("SetContactTypeDetails", "ContactTypes", FormMethod.Post, new { @class = "form-horizontal", id = "formDetail" }))
+{
+    @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m => m.OrganizationID)
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-4", @for = "inputName" })
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.Name, new { id = "inputName", @class = "form-control", placeholder = "Input new Contact Type" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DisplayPattern, new { @class = "control-label col-lg-4", @for = "inputDisplayPattern" })
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.DisplayPattern, new { id = "inputDisplayPattern", @class = "form-control", placeholder = "Input new Display Pattern" })
+            @Html.ValidationMessageFor(m => m.DisplayPattern)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SystemType, new { @class = "control-label col-lg-4", @for = "inputSystemType" })
+        <div class="col-lg-8">
+            @Html.DropDownListFor(m => m.SystemType, ListsHelper.SystemContactTypesList(), new { id = "inputSystemType", @class="select2", placeholder = "Select System Type" })
+            @Html.ValidationMessageFor(m => m.SystemType)
+        </div>
+    </div>
+}

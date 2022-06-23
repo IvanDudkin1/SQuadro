@@ -1,0 +1,417 @@
+body
+{
+    background-color: White;
+}
+
+.navbar-small > li > a
+{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-weight: normal !important;
+}
+
+.body-container 
+{
+    padding-top: 90px;
+}
+
+/* info and errors */
+.message-info {
+    border: 1px solid;
+    clear: both;
+    padding: 10px 20px;
+}
+
+.message-error {
+    clear: both;
+    color: #e80c4d;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+
+.message-success {
+    color: #7ac0da;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+
+.error {
+    color: #e80c4d;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*full width container*/
+.container {
+max-width: none;
+}
+
+/*max heights*/
+.max-height-70
+{
+    max-height: 70px;
+}
+
+/*LogOff link*/
+.dropdown-menu > li > form > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #333333;
+  white-space: nowrap;
+}
+
+.dropdown-menu > li > form > a:hover,
+.dropdown-menu > li > form > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #428bca;
+}
+
+.dropdown-menu > li > form > a {
+  font-size: 13px;
+  padding-left: 11px;
+  padding-right: 11px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.user-menu > li > form > a > [class*="icon-"] {
+    margin-right: 6px;
+    font-size: 120%;
+}
+
+/*override default modal width*/
+@media screen and (min-width: 768px) {
+    .modal-dialog {
+      width: 700px;
+    }
+}
+
+/*prevent body from scrolling when modal is open*/
+body.modal-open {
+    overflow: hidden;
+}
+
+/*drag cursor for modal header*/
+.modal-header {
+    cursor: move;
+    padding: 10px;
+}
+
+/*reduce margin in forms*/
+.form-group {
+    margin-bottom: 10px;
+}
+
+/*fix for datepicker inside a modal*/
+.datepicker 
+{
+    z-index: 1151 !important;
+}
+
+/*no border for buttons*/
+*:not(.btn-group) > .btn
+{
+    border: none;
+}
+
+.input-group-btn button
+{
+    border: 1px solid rgb(213, 213, 213) !important;
+}
+
+/*prevent labels overflow inside forms*/
+form .label, .wizard-header .label
+{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+form .field-view
+{
+    display: inline-block;
+    max-width: 100%;
+    margin-top: 5px;
+    word-wrap: break-word;
+}
+
+/*adjust form labels layout*/
+form .label {
+    margin-top: 5px;
+}
+
+/*adjust form checkboxes layout*/
+form .checkbox 
+{
+    padding-top: 2px !important;  
+    padding-left: 12px;
+}
+
+/*adjust page layout*/
+.page-content
+{
+    position: absolute;
+}
+
+/*remove sort icons from grids*/
+.dataTable th.sorting:after {
+  content: "";
+}
+
+/**/
+.form-page-content
+{
+    max-width: 600px
+}
+
+.form-header
+{
+    color: #2b7dbc;
+}
+
+/*margins*/
+.marginbot-5
+{
+    margin-bottom: 5px;
+}
+
+.marginbot-10
+{
+    margin-bottom: 10px;
+}
+
+/*login page alterations*/
+.login-layout
+{
+    background-color: White;
+}
+
+#login-box {
+    padding: 1px;
+    background-color: rgb(80, 144, 193);
+}
+
+#forgot-box {
+    padding: 1px;
+    background-color: rgb(193, 96, 80);
+}
+
+.login-box .toolbar, .forgot-box .toolbar {
+    border-top: none;
+}
+
+/*sidebar footer*/
+#main-container
+{
+    min-height: 90%;
+    height: 90%;
+}
+
+.main-container-inner, #sidebar
+{
+    height: 100%;
+}
+
+#sidebar-inner
+{
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -20px;
+}
+
+.sidebar-footer
+{
+    font-size: 10px;
+    height: 15px;
+}
+
+.sidebar.menu-min .sidebar-footer
+{
+    display: none;
+}
+
+/*labels*/
+.label {
+  background-color: White !important;
+  color: #abbac3;
+  border: 2px solid #abbac3;
+}
+
+.label-success {
+  background-color: White !important;
+  color: #82af6f;
+  border: 2px solid #82af6f;
+}
+
+.label-danger {
+  background-color: White !important;
+  color: #d15b47;
+  border: 2px solid #d15b47;
+}
+
+.label-info {
+  background-color: White !important;
+  color: #3a87ad;
+  border: 2px solid #3a87ad;
+}
+
+.label-primary {
+  background-color: White !important;
+  color: #428bca;
+  border: 2px solid #428bca;
+}
+
+.label-important {
+  background-color: White !important;
+  color: #d15b47;
+  border: 2px solid #d15b47;
+}
+
+.label-inverse {
+  background-color: White !important;
+  color: #333333;
+  border: 2px solid #333333;
+}
+
+.label-warning {
+  background-color: White !important;
+  color: #f89406;
+  border: 2px solid #f89406;
+}
+
+.user-info {
+    max-width: 150px;
+}
+
+/*selection info */
+.selection-info 
+{
+    height: 45px;
+    text-align: center;
+    min-width: 160px;
+}
+.selection-info .checkbox
+{
+    margin: 0;
+    padding: 0;
+    color: White;
+}
+.selection-info .lbl
+{
+    cursor: default;
+}
+
+/*file input*/
+.ace-file-input .file-label.selected .file-name {
+    width: 100%;
+}
+
+.ace-file-input {
+    margin-bottom: 0;
+}
+
+/*no resize*/
+textarea {
+    resize: none;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    font-size: 13px;
+}
+
+/*select2 modifications*/
+.select2-container .select2-choice 
+{
+    border: none;
+}
+
+.select2-container .select2-choices
+{
+    border: none;
+}
+
+.select2-container
+{
+    border: 1px solid #d5d5d5;
+}
+
+div[class="select2-container select2 input-validation-error"] {
+   border: 1px solid #e80c4d;
+}
+
+/*
+.select2-container.single-line
+{
+    max-height: 200px;
+    overflow-y: auto;
+}
+*/
+
+.select2-container.single-line li.select2-search-choice
+{
+    display: block;
+    width: 95%;
+    text-overflow: ellipsis;
+    border: none !important;
+    background: none !important;
+}
+
+.select2-show-link
+{
+    position: absolute;
+    top: 9px;
+    margin-left: 4px;
+}
+
+.select2-show-link > i
+{
+    text-decoration: none;
+}
+
+.select2-button-container > div
+{
+    position: relative;
+}
+
+/*selected items label*/
+#label-table-selection:before
+{
+    margin-right: 3px;
+}

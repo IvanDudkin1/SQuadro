@@ -1,0 +1,2202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SQuadro.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SQuadroStoreContainer">
+    <EntitySet Name="Companies" EntityType="SQuadro.Store.Companies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Categories" EntityType="SQuadro.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Countries" EntityType="SQuadro.Store.Countries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contacts" EntityType="SQuadro.Store.Contacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContactTypes" EntityType="SQuadro.Store.ContactTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Areas" EntityType="SQuadro.Store.Areas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyAreas" EntityType="SQuadro.Store.CompanyAreas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyCategories" EntityType="SQuadro.Store.CompanyCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentTypes" EntityType="SQuadro.Store.DocumentTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentStatuses" EntityType="SQuadro.Store.DocumentStatuses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tags" EntityType="SQuadro.Store.Tags" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Documents" EntityType="SQuadro.Store.Documents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Organizations" EntityType="SQuadro.Store.Organizations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="SQuadro.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RelatedObjects" EntityType="SQuadro.Store.RelatedObjects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmailSettings" EntityType="SQuadro.Store.EmailSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentSets" EntityType="SQuadro.Store.DocumentSets" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmailTemplates" EntityType="SQuadro.Store.EmailTemplates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subjects" EntityType="SQuadro.Store.Subjects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRoles" EntityType="SQuadro.Store.UserRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RelatedObjects_Vessel" EntityType="SQuadro.Store.RelatedObjects_Vessel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentSetDocument" EntityType="SQuadro.Store.DocumentSetDocument" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRoleCategory" EntityType="SQuadro.Store.UserRoleCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRoleRelatedObject" EntityType="SQuadro.Store.UserRoleRelatedObject" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CountryCompany" Association="SQuadro.Store.CountryCompany">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="ContactContactType" Association="SQuadro.Store.ContactContactType">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="ContactType" EntitySet="ContactTypes" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyContact" Association="SQuadro.Store.CompanyContact">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Contact" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyCompanyArea" Association="SQuadro.Store.CompanyCompanyArea">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="CompanyArea" EntitySet="CompanyAreas" />
+    </AssociationSet>
+    <AssociationSet Name="AreaCompanyArea" Association="SQuadro.Store.AreaCompanyArea">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="CompanyArea" EntitySet="CompanyAreas" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyCategoryCompany" Association="SQuadro.Store.CompanyCategoryCompany">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="CategoryCompany" EntitySet="CompanyCategories" />
+    </AssociationSet>
+    <AssociationSet Name="CategoryCategoryCompany" Association="SQuadro.Store.CategoryCategoryCompany">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="CategoryCompany" EntitySet="CompanyCategories" />
+    </AssociationSet>
+    <AssociationSet Name="DocumentTypeDocument" Association="SQuadro.Store.DocumentTypeDocument">
+      <End Role="DocumentType" EntitySet="DocumentTypes" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="DocumentStatusDocument" Association="SQuadro.Store.DocumentStatusDocument">
+      <End Role="DocumentStatus" EntitySet="DocumentStatuses" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="RelatedObjectDocument" Association="SQuadro.Store.RelatedObjectDocument">
+      <End Role="RelatedObject" EntitySet="RelatedObjects" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="UserOrganization" Association="SQuadro.Store.UserOrganization">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Organization" EntitySet="Organizations" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationArea" Association="SQuadro.Store.OrganizationArea">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Area" EntitySet="Areas" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationCompany" Association="SQuadro.Store.OrganizationCompany">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationContactType" Association="SQuadro.Store.OrganizationContactType">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="ContactType" EntitySet="ContactTypes" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationCategory" Association="SQuadro.Store.OrganizationCategory">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationTag" Association="SQuadro.Store.OrganizationTag">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Tag" EntitySet="Tags" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationDocumentStatus" Association="SQuadro.Store.OrganizationDocumentStatus">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="DocumentStatus" EntitySet="DocumentStatuses" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationDocumentType" Association="SQuadro.Store.OrganizationDocumentType">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="DocumentType" EntitySet="DocumentTypes" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationRelatedObject" Association="SQuadro.Store.OrganizationRelatedObject">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="RelatedObject" EntitySet="RelatedObjects" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationDocument" Association="SQuadro.Store.OrganizationDocument">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationEmailSenderTemplate" Association="SQuadro.Store.OrganizationEmailSenderTemplate">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="EmailSenderTemplate" EntitySet="EmailSettings" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationDocumentSet" Association="SQuadro.Store.OrganizationDocumentSet">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="DocumentSet" EntitySet="DocumentSets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentSetDocument_DocumentSet" Association="SQuadro.Store.FK_DocumentSetDocument_DocumentSet">
+      <End Role="DocumentSet" EntitySet="DocumentSets" />
+      <End Role="DocumentSetDocument" EntitySet="DocumentSetDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentSetDocument_Document" Association="SQuadro.Store.FK_DocumentSetDocument_Document">
+      <End Role="Document" EntitySet="Documents" />
+      <End Role="DocumentSetDocument" EntitySet="DocumentSetDocument" />
+    </AssociationSet>
+    <AssociationSet Name="CreatedBy" Association="SQuadro.Store.CreatedBy">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="UpdatedBy" Association="SQuadro.Store.UpdatedBy">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="DocumentCreatedByUser" Association="SQuadro.Store.DocumentCreatedByUser">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="DocumentUpdatedByUser" Association="SQuadro.Store.DocumentUpdatedByUser">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationEmailTemplates" Association="SQuadro.Store.OrganizationEmailTemplates">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="EmailTemplates" EntitySet="EmailTemplates" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationSubject" Association="SQuadro.Store.OrganizationSubject">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Subject" EntitySet="Subjects" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationUserRole" Association="SQuadro.Store.OrganizationUserRole">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="UserRoleUser" Association="SQuadro.Store.UserRoleUser">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoleCategory_UserRole" Association="SQuadro.Store.FK_UserRoleCategory_UserRole">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="UserRoleCategory" EntitySet="UserRoleCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoleCategory_Category" Association="SQuadro.Store.FK_UserRoleCategory_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="UserRoleCategory" EntitySet="UserRoleCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoleRelatedObject_UserRole" Association="SQuadro.Store.FK_UserRoleRelatedObject_UserRole">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="UserRoleRelatedObject" EntitySet="UserRoleRelatedObject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoleRelatedObject_RelatedObject" Association="SQuadro.Store.FK_UserRoleRelatedObject_RelatedObject">
+      <End Role="RelatedObject" EntitySet="RelatedObjects" />
+      <End Role="UserRoleRelatedObject" EntitySet="UserRoleRelatedObject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vessel_inherits_RelatedObject" Association="SQuadro.Store.FK_Vessel_inherits_RelatedObject">
+      <End Role="RelatedObject" EntitySet="RelatedObjects" />
+      <End Role="Vessel" EntitySet="RelatedObjects_Vessel" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Companies">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" DefaultValue="&quot;&quot;" />
+    <Property Name="FullName" Type="nvarchar(max)" Nullable="false" DefaultValue="&quot;&quot;" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" DefaultValue="&quot;&quot;" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" DefaultValue="&quot;&quot;" />
+    <Property Name="CountryID_Alpha2" Type="nchar" Nullable="false" MaxLength="2" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetimeoffset" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetimeoffset" Nullable="true" />
+    <Property Name="CreatedByUserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UpdatedByUserID" Type="uniqueidentifier" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" DefaultValue="&quot;&quot;" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" DefaultValue="&quot;&quot;" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="ID_Alpha2" />
+    </Key>
+    <Property Name="ID_Alpha2" Type="nchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="2" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsPrimary" Type="bit" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" DefaultValue="&quot;&quot;" />
+    <Property Name="UserGroup" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ContactTypeID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DisplayPattern" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SystemType" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Areas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyAreas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AreaID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyCategories">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentStatuses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tags">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="512" />
+    <Property Name="Number" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="FileName" Type="nvarchar" Nullable="false" MaxLength="512" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="ExpirationDate" Type="datetime" Nullable="true" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DocumentTypeID" Type="int" Nullable="true" />
+    <Property Name="DocumentStatusID" Type="int" Nullable="true" />
+    <Property Name="Tags" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RelatedObjectID" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetimeoffset" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetimeoffset" Nullable="true" />
+    <Property Name="CreatedByUserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UpdatedByUserID" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="File" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Organizations">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Timezone" Type="varchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Role" Type="int" Nullable="false" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ForceChangePassword" Type="bit" Nullable="false" />
+    <Property Name="UserRoleID" Type="uniqueidentifier" Nullable="true" />
+  </EntityType>
+  <EntityType Name="RelatedObjects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailSettings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="SmtpServer" Type="nvarchar" Nullable="false" DefaultValue="" MaxLength="256" />
+    <Property Name="SmtpPort" Type="int" Nullable="false" />
+    <Property Name="SmtpUser" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="SmtpPassword" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="EnableSsl" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentSets">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailTemplates">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Salutation" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="Signature" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="Subject" Type="nvarchar" Nullable="true" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrganizationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsReadonly" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="RelatedObjects_Vessel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentSetDocument">
+    <Key>
+      <PropertyRef Name="DocumentSets_ID" />
+      <PropertyRef Name="Documents_ID" />
+    </Key>
+    <Property Name="DocumentSets_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Documents_ID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRoleCategory">
+    <Key>
+      <PropertyRef Name="UserRoles_ID" />
+      <PropertyRef Name="Categories_ID" />
+    </Key>
+    <Property Name="UserRoles_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Categories_ID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRoleRelatedObject">
+    <Key>
+      <PropertyRef Name="UserRoles_ID" />
+      <PropertyRef Name="RelatedObjects_ID" />
+    </Key>
+    <Property Name="UserRoles_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RelatedObjects_ID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="CountryCompany">
+    <End Role="Country" Type="SQuadro.Store.Countries" Multiplicity="1" />
+    <End Role="Company" Type="SQuadro.Store.Companies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID_Alpha2" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="CountryID_Alpha2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContactContactType">
+    <End Role="Contact" Type="SQuadro.Store.Contacts" Multiplicity="*" />
+    <End Role="ContactType" Type="SQuadro.Store.ContactTypes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ContactType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="ContactTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyContact">
+    <End Role="Company" Type="SQuadro.Store.Companies" Multiplicity="1" />
+    <End Role="Contact" Type="SQuadro.Store.Contacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyCompanyArea">
+    <End Role="Company" Type="SQuadro.Store.Companies" Multiplicity="1" />
+    <End Role="CompanyArea" Type="SQuadro.Store.CompanyAreas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CompanyArea">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AreaCompanyArea">
+    <End Role="Area" Type="SQuadro.Store.Areas" Multiplicity="1" />
+    <End Role="CompanyArea" Type="SQuadro.Store.CompanyAreas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CompanyArea">
+        <PropertyRef Name="AreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyCategoryCompany">
+    <End Role="Company" Type="SQuadro.Store.Companies" Multiplicity="1" />
+    <End Role="CategoryCompany" Type="SQuadro.Store.CompanyCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CategoryCompany">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CategoryCategoryCompany">
+    <End Role="Category" Type="SQuadro.Store.Categories" Multiplicity="1" />
+    <End Role="CategoryCompany" Type="SQuadro.Store.CompanyCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CategoryCompany">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DocumentTypeDocument">
+    <End Role="DocumentType" Type="SQuadro.Store.DocumentTypes" Multiplicity="0..1" />
+    <End Role="Document" Type="SQuadro.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="DocumentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DocumentStatusDocument">
+    <End Role="DocumentStatus" Type="SQuadro.Store.DocumentStatuses" Multiplicity="0..1" />
+    <End Role="Document" Type="SQuadro.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="DocumentStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RelatedObjectDocument">
+    <End Role="RelatedObject" Type="SQuadro.Store.RelatedObjects" Multiplicity="0..1" />
+    <End Role="Document" Type="SQuadro.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RelatedObject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="RelatedObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserOrganization">
+    <End Role="User" Type="SQuadro.Store.Users" Multiplicity="*" />
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationArea">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="Area" Type="SQuadro.Store.Areas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Area">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationCompany">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="Company" Type="SQuadro.Store.Companies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationContactType">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="ContactType" Type="SQuadro.Store.ContactTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ContactType">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationCategory">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="Category" Type="SQuadro.Store.Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationTag">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="Tag" Type="SQuadro.Store.Tags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tag">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationDocumentStatus">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="DocumentStatus" Type="SQuadro.Store.DocumentStatuses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentStatus">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationDocumentType">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="DocumentType" Type="SQuadro.Store.DocumentTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentType">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationRelatedObject">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="RelatedObject" Type="SQuadro.Store.RelatedObjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RelatedObject">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationDocument">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="Document" Type="SQuadro.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationEmailSenderTemplate">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="EmailSenderTemplate" Type="SQuadro.Store.EmailSettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmailSenderTemplate">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationDocumentSet">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="DocumentSet" Type="SQuadro.Store.DocumentSets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentSet">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CreatedBy">
+    <End Role="User" Type="SQuadro.Store.Users" Multiplicity="1" />
+    <End Role="Company" Type="SQuadro.Store.Companies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="CreatedByUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UpdatedBy">
+    <End Role="User" Type="SQuadro.Store.Users" Multiplicity="0..1" />
+    <End Role="Company" Type="SQuadro.Store.Companies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="UpdatedByUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DocumentCreatedByUser">
+    <End Role="User" Type="SQuadro.Store.Users" Multiplicity="1" />
+    <End Role="Document" Type="SQuadro.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="CreatedByUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DocumentUpdatedByUser">
+    <End Role="User" Type="SQuadro.Store.Users" Multiplicity="0..1" />
+    <End Role="Document" Type="SQuadro.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="UpdatedByUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationEmailTemplates">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="EmailTemplates" Type="SQuadro.Store.EmailTemplates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmailTemplates">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationSubject">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="Subject" Type="SQuadro.Store.Subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationUserRole">
+    <End Role="Organization" Type="SQuadro.Store.Organizations" Multiplicity="1" />
+    <End Role="UserRole" Type="SQuadro.Store.UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="OrganizationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserRoleUser">
+    <End Role="UserRole" Type="SQuadro.Store.UserRoles" Multiplicity="0..1" />
+    <End Role="User" Type="SQuadro.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentSetDocument_DocumentSet">
+    <End Role="DocumentSet" Type="SQuadro.Store.DocumentSets" Multiplicity="1" />
+    <End Role="DocumentSetDocument" Type="SQuadro.Store.DocumentSetDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentSet">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentSetDocument">
+        <PropertyRef Name="DocumentSets_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentSetDocument_Document">
+    <End Role="DocumentSetDocument" Type="SQuadro.Store.DocumentSetDocument" Multiplicity="*" />
+    <End Role="Document" Type="SQuadro.Store.Documents" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentSetDocument">
+        <PropertyRef Name="Documents_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoleCategory_UserRole">
+    <End Role="UserRole" Type="SQuadro.Store.UserRoles" Multiplicity="1" />
+    <End Role="UserRoleCategory" Type="SQuadro.Store.UserRoleCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserRoleCategory">
+        <PropertyRef Name="UserRoles_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoleCategory_Category">
+    <End Role="UserRoleCategory" Type="SQuadro.Store.UserRoleCategory" Multiplicity="*" />
+    <End Role="Category" Type="SQuadro.Store.Categories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserRoleCategory">
+        <PropertyRef Name="Categories_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoleRelatedObject_UserRole">
+    <End Role="UserRole" Type="SQuadro.Store.UserRoles" Multiplicity="1" />
+    <End Role="UserRoleRelatedObject" Type="SQuadro.Store.UserRoleRelatedObject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserRoleRelatedObject">
+        <PropertyRef Name="UserRoles_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoleRelatedObject_RelatedObject">
+    <End Role="UserRoleRelatedObject" Type="SQuadro.Store.UserRoleRelatedObject" Multiplicity="*" />
+    <End Role="RelatedObject" Type="SQuadro.Store.RelatedObjects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RelatedObject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserRoleRelatedObject">
+        <PropertyRef Name="RelatedObjects_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vessel_inherits_RelatedObject">
+    <End Role="RelatedObject" Type="SQuadro.Store.RelatedObjects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vessel" Type="SQuadro.Store.RelatedObjects_Vessel" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="RelatedObject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Vessel">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SQuadro" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="EntityContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="SQuadro.Company" />
+          <EntitySet Name="Categories" EntityType="SQuadro.Category" />
+          <EntitySet Name="Countries" EntityType="SQuadro.Country" />
+          <EntitySet Name="Contacts" EntityType="SQuadro.Contact" />
+          <EntitySet Name="ContactTypes" EntityType="SQuadro.ContactType" />
+          <AssociationSet Name="CountryCompany" Association="SQuadro.CountryCompany">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="ContactContactType" Association="SQuadro.ContactContactType">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="ContactType" EntitySet="ContactTypes" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyContact" Association="SQuadro.CompanyContact">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <EntitySet Name="Areas" EntityType="SQuadro.Area" />
+          <EntitySet Name="CompanyAreas" EntityType="SQuadro.CompanyArea" />
+          <AssociationSet Name="CompanyCompanyArea" Association="SQuadro.CompanyCompanyArea">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="CompanyArea" EntitySet="CompanyAreas" />
+          </AssociationSet>
+          <AssociationSet Name="AreaCompanyArea" Association="SQuadro.AreaCompanyArea">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="CompanyArea" EntitySet="CompanyAreas" />
+          </AssociationSet>
+          <EntitySet Name="CompanyCategories" EntityType="SQuadro.CompanyCategory" />
+          <AssociationSet Name="CompanyCategoryCompany" Association="SQuadro.CompanyCategoryCompany">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="CategoryCompany" EntitySet="CompanyCategories" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryCategoryCompany" Association="SQuadro.CategoryCategoryCompany">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="CategoryCompany" EntitySet="CompanyCategories" />
+          </AssociationSet>
+          <EntitySet Name="DocumentTypes" EntityType="SQuadro.DocumentType" />
+          <EntitySet Name="DocumentStatuses" EntityType="SQuadro.DocumentStatus" />
+          <EntitySet Name="Tags" EntityType="SQuadro.Tag" />
+          <EntitySet Name="Documents" EntityType="SQuadro.Document" />
+          <AssociationSet Name="DocumentTypeDocument" Association="SQuadro.DocumentTypeDocument">
+            <End Role="DocumentType" EntitySet="DocumentTypes" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="DocumentStatusDocument" Association="SQuadro.DocumentStatusDocument">
+            <End Role="DocumentStatus" EntitySet="DocumentStatuses" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <EntitySet Name="Organizations" EntityType="SQuadro.Organization" />
+          <EntitySet Name="Users" EntityType="SQuadro.User" />
+          <EntitySet Name="RelatedObjects" EntityType="SQuadro.RelatedObject" />
+          <AssociationSet Name="RelatedObjectDocument" Association="SQuadro.RelatedObjectDocument">
+            <End Role="RelatedObject" EntitySet="RelatedObjects" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="UserOrganization" Association="SQuadro.UserOrganization">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Organization" EntitySet="Organizations" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationArea" Association="SQuadro.OrganizationArea">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Area" EntitySet="Areas" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationCompany" Association="SQuadro.OrganizationCompany">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationContactType" Association="SQuadro.OrganizationContactType">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="ContactType" EntitySet="ContactTypes" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationCategory" Association="SQuadro.OrganizationCategory">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationTag" Association="SQuadro.OrganizationTag">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Tag" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationDocumentStatus" Association="SQuadro.OrganizationDocumentStatus">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="DocumentStatus" EntitySet="DocumentStatuses" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationDocumentType" Association="SQuadro.OrganizationDocumentType">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="DocumentType" EntitySet="DocumentTypes" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationRelatedObject" Association="SQuadro.OrganizationRelatedObject">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="RelatedObject" EntitySet="RelatedObjects" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationDocument" Association="SQuadro.OrganizationDocument">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <EntitySet Name="EmailSettings" EntityType="SQuadro.EmailSettings" />
+          <AssociationSet Name="OrganizationEmailSenderTemplate" Association="SQuadro.OrganizationEmailSenderTemplate">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="EmailSenderTemplate" EntitySet="EmailSettings" />
+          </AssociationSet>
+          <EntitySet Name="DocumentSets" EntityType="SQuadro.DocumentSet" />
+          <AssociationSet Name="OrganizationDocumentSet" Association="SQuadro.OrganizationDocumentSet">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="DocumentSet" EntitySet="DocumentSets" />
+          </AssociationSet>
+          <AssociationSet Name="DocumentSetDocument" Association="SQuadro.DocumentSetDocument">
+            <End Role="DocumentSet" EntitySet="DocumentSets" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="CreatedBy" Association="SQuadro.CreatedBy">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="UpdatedBy" Association="SQuadro.UpdatedBy">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="DocumentCreatedByUser" Association="SQuadro.DocumentCreatedByUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="DocumentUpdatedByUser" Association="SQuadro.DocumentUpdatedByUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <EntitySet Name="EmailTemplates" EntityType="SQuadro.EmailTemplates" />
+          <AssociationSet Name="OrganizationEmailTemplates" Association="SQuadro.OrganizationEmailTemplates">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="EmailTemplates" EntitySet="EmailTemplates" />
+          </AssociationSet>
+          <EntitySet Name="Subjects" EntityType="SQuadro.Subject" />
+          <AssociationSet Name="OrganizationSubject" Association="SQuadro.OrganizationSubject">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <EntitySet Name="UserRoles" EntityType="SQuadro.UserRole" />
+          <AssociationSet Name="OrganizationUserRole" Association="SQuadro.OrganizationUserRole">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="UserRole" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="UserRoleUser" Association="SQuadro.UserRoleUser">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="UserRoleCategory" Association="SQuadro.UserRoleCategory">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="UserRoleRelatedObject" Association="SQuadro.UserRoleRelatedObject">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="RelatedObject" EntitySet="RelatedObjects" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" DefaultValue="&quot;&quot;" />
+          <Property Type="String" Name="FullName" Nullable="false" DefaultValue="&quot;&quot;" />
+          <Property Type="String" Name="Address" DefaultValue="&quot;&quot;" Nullable="true" />
+          <Property Type="String" Name="Comment" Nullable="true" DefaultValue="&quot;&quot;" />
+          <NavigationProperty Name="Country" Relationship="SQuadro.CountryCompany" FromRole="Company" ToRole="Country" />
+          <Property Type="String" Name="CountryID_Alpha2" Nullable="false" MaxLength="2" FixedLength="true" />
+          <NavigationProperty Name="Contacts" Relationship="SQuadro.CompanyContact" FromRole="Company" ToRole="Contact" />
+          <NavigationProperty Name="CompanyAreas" Relationship="SQuadro.CompanyCompanyArea" FromRole="Company" ToRole="CompanyArea" />
+          <NavigationProperty Name="CompanyCategories" Relationship="SQuadro.CompanyCategoryCompany" FromRole="Company" ToRole="CategoryCompany" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationCompany" FromRole="Company" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+          <Property Type="DateTimeOffset" Name="CreatedOn" Nullable="false" />
+          <Property Type="DateTimeOffset" Name="UpdatedOn" Nullable="true" />
+          <NavigationProperty Name="UserCreatedBy" Relationship="SQuadro.CreatedBy" FromRole="Company" ToRole="User" />
+          <Property Type="Guid" Name="CreatedByUserID" Nullable="false" />
+          <NavigationProperty Name="UserUpdatedBy" Relationship="SQuadro.UpdatedBy" FromRole="Company" ToRole="User" />
+          <Property Type="Guid" Name="UpdatedByUserID" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" DefaultValue="&quot;&quot;" />
+          <Property Type="String" Name="Comment" DefaultValue="&quot;&quot;" Nullable="true" />
+          <NavigationProperty Name="CategoryCompanies" Relationship="SQuadro.CategoryCategoryCompany" FromRole="Category" ToRole="CategoryCompany" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationCategory" FromRole="Category" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+          <NavigationProperty Name="UserRoles" Relationship="SQuadro.UserRoleCategory" FromRole="Category" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID_Alpha2" />
+          </Key>
+          <Property Type="String" Name="ID_Alpha2" Nullable="false" annotation:StoreGeneratedPattern="Identity" FixedLength="true" MaxLength="2" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Companies" Relationship="SQuadro.CountryCompany" FromRole="Country" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Data" Nullable="false" />
+          <Property Type="Boolean" Name="IsPrimary" Nullable="false" />
+          <Property Type="String" Name="Comment" Nullable="true" DefaultValue="&quot;&quot;" />
+          <Property Type="String" Name="UserGroup" Nullable="true" />
+          <NavigationProperty Name="ContactType" Relationship="SQuadro.ContactContactType" FromRole="Contact" ToRole="ContactType" />
+          <Property Type="Int32" Name="ContactTypeID" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="SQuadro.CompanyContact" FromRole="Contact" ToRole="Company" />
+          <Property Type="Guid" Name="CompanyID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Contacts" Relationship="SQuadro.ContactContactType" FromRole="ContactType" ToRole="Contact" />
+          <Property Type="String" Name="DisplayPattern" Nullable="true" MaxLength="128" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationContactType" FromRole="ContactType" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+          <Property Type="Int32" Name="SystemType" Nullable="true" />
+        </EntityType>
+        <Association Name="CountryCompany">
+          <End Type="SQuadro.Country" Role="Country" Multiplicity="1" />
+          <End Type="SQuadro.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID_Alpha2" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="CountryID_Alpha2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ContactContactType">
+          <End Type="SQuadro.Contact" Role="Contact" Multiplicity="*" />
+          <End Type="SQuadro.ContactType" Role="ContactType" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ContactType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="ContactTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyContact">
+          <End Type="SQuadro.Company" Role="Company" Multiplicity="1" />
+          <End Type="SQuadro.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+          <NavigationProperty Name="CompanyAreas" Relationship="SQuadro.AreaCompanyArea" FromRole="Area" ToRole="CompanyArea" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationArea" FromRole="Area" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyArea">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Company" Relationship="SQuadro.CompanyCompanyArea" FromRole="CompanyArea" ToRole="Company" />
+          <Property Type="Guid" Name="CompanyID" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="SQuadro.AreaCompanyArea" FromRole="CompanyArea" ToRole="Area" />
+          <Property Type="Guid" Name="AreaID" Nullable="false" />
+        </EntityType>
+        <Association Name="CompanyCompanyArea">
+          <End Type="SQuadro.Company" Role="Company" Multiplicity="1" />
+          <End Type="SQuadro.CompanyArea" Role="CompanyArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CompanyArea">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AreaCompanyArea">
+          <End Type="SQuadro.Area" Role="Area" Multiplicity="1" />
+          <End Type="SQuadro.CompanyArea" Role="CompanyArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CompanyArea">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CompanyCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Company" Relationship="SQuadro.CompanyCategoryCompany" FromRole="CategoryCompany" ToRole="Company" />
+          <Property Type="Guid" Name="CompanyID" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="SQuadro.CategoryCategoryCompany" FromRole="CategoryCompany" ToRole="Category" />
+          <Property Type="Guid" Name="CategoryID" Nullable="false" />
+        </EntityType>
+        <Association Name="CompanyCategoryCompany">
+          <End Type="SQuadro.Company" Role="Company" Multiplicity="1" />
+          <End Type="SQuadro.CompanyCategory" Role="CategoryCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CategoryCompany">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CategoryCategoryCompany">
+          <End Type="SQuadro.Category" Role="Category" Multiplicity="1" />
+          <End Type="SQuadro.CompanyCategory" Role="CategoryCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CategoryCompany">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DocumentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Documents" Relationship="SQuadro.DocumentTypeDocument" FromRole="DocumentType" ToRole="Document" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationDocumentType" FromRole="DocumentType" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Documents" Relationship="SQuadro.DocumentStatusDocument" FromRole="DocumentStatus" ToRole="Document" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationDocumentStatus" FromRole="DocumentStatus" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="32" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationTag" FromRole="Tag" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vessel" BaseType="SQuadro.RelatedObject">
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="512" />
+          <Property Type="String" Name="Number" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="512" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="DateTime" Name="ExpirationDate" Nullable="true" />
+          <Property Type="String" Name="Comment" Nullable="true" />
+          <NavigationProperty Name="DocumentType" Relationship="SQuadro.DocumentTypeDocument" FromRole="Document" ToRole="DocumentType" />
+          <Property Type="Int32" Name="DocumentTypeID" Nullable="true" />
+          <NavigationProperty Name="DocumentStatu" Relationship="SQuadro.DocumentStatusDocument" FromRole="Document" ToRole="DocumentStatus" />
+          <Property Type="Int32" Name="DocumentStatusID" Nullable="true" />
+          <Property Type="String" Name="Tags" Nullable="true" />
+          <NavigationProperty Name="RelatedObject" Relationship="SQuadro.RelatedObjectDocument" FromRole="Document" ToRole="RelatedObject" />
+          <Property Type="Guid" Name="RelatedObjectID" Nullable="true" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationDocument" FromRole="Document" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+          <NavigationProperty Name="DocumentSets" Relationship="SQuadro.DocumentSetDocument" FromRole="Document" ToRole="DocumentSet" />
+          <Property Type="DateTimeOffset" Name="CreatedOn" Nullable="false" />
+          <Property Type="DateTimeOffset" Name="UpdatedOn" Nullable="true" />
+          <NavigationProperty Name="UserCreatedBy" Relationship="SQuadro.DocumentCreatedByUser" FromRole="Document" ToRole="User" />
+          <Property Type="Guid" Name="CreatedByUserID" Nullable="false" />
+          <NavigationProperty Name="UserUpdatedBy" Relationship="SQuadro.DocumentUpdatedByUser" FromRole="Document" ToRole="User" />
+          <Property Type="Guid" Name="UpdatedByUserID" Nullable="true" />
+          <Property Type="Binary" Name="File" Nullable="true" />
+        </EntityType>
+        <Association Name="DocumentTypeDocument">
+          <End Type="SQuadro.DocumentType" Role="DocumentType" Multiplicity="0..1" />
+          <End Type="SQuadro.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="DocumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DocumentStatusDocument">
+          <End Type="SQuadro.DocumentStatus" Role="DocumentStatus" Multiplicity="0..1" />
+          <End Type="SQuadro.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="DocumentStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+          <NavigationProperty Name="Users" Relationship="SQuadro.UserOrganization" FromRole="Organization" ToRole="User" />
+          <NavigationProperty Name="Areas" Relationship="SQuadro.OrganizationArea" FromRole="Organization" ToRole="Area" />
+          <NavigationProperty Name="Companies" Relationship="SQuadro.OrganizationCompany" FromRole="Organization" ToRole="Company" />
+          <NavigationProperty Name="ContactTypes" Relationship="SQuadro.OrganizationContactType" FromRole="Organization" ToRole="ContactType" />
+          <NavigationProperty Name="Categories" Relationship="SQuadro.OrganizationCategory" FromRole="Organization" ToRole="Category" />
+          <NavigationProperty Name="Tags" Relationship="SQuadro.OrganizationTag" FromRole="Organization" ToRole="Tag" />
+          <NavigationProperty Name="DocumentStatuses" Relationship="SQuadro.OrganizationDocumentStatus" FromRole="Organization" ToRole="DocumentStatus" />
+          <NavigationProperty Name="DocumentTypes" Relationship="SQuadro.OrganizationDocumentType" FromRole="Organization" ToRole="DocumentType" />
+          <NavigationProperty Name="RelatedObjects" Relationship="SQuadro.OrganizationRelatedObject" FromRole="Organization" ToRole="RelatedObject" />
+          <NavigationProperty Name="Documents" Relationship="SQuadro.OrganizationDocument" FromRole="Organization" ToRole="Document" />
+          <NavigationProperty Name="EmailSenderTemplates" Relationship="SQuadro.OrganizationEmailSenderTemplate" FromRole="Organization" ToRole="EmailSenderTemplate" />
+          <NavigationProperty Name="DocumentSets" Relationship="SQuadro.OrganizationDocumentSet" FromRole="Organization" ToRole="DocumentSet" />
+          <Property Type="String" Name="Timezone" Nullable="false" Unicode="false" MaxLength="256" />
+          <NavigationProperty Name="EmailTemplates" Relationship="SQuadro.OrganizationEmailTemplates" FromRole="Organization" ToRole="EmailTemplates" />
+          <NavigationProperty Name="Subjects" Relationship="SQuadro.OrganizationSubject" FromRole="Organization" ToRole="Subject" />
+          <NavigationProperty Name="UserRoles" Relationship="SQuadro.OrganizationUserRole" FromRole="Organization" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
+          <Property Type="Int32" Name="Role" Nullable="false" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.UserOrganization" FromRole="User" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+          <Property Type="Boolean" Name="ForceChangePassword" Nullable="false" />
+          <NavigationProperty Name="CreatedCompanies" Relationship="SQuadro.CreatedBy" FromRole="User" ToRole="Company" />
+          <NavigationProperty Name="UpdatedCompanies" Relationship="SQuadro.UpdatedBy" FromRole="User" ToRole="Company" />
+          <NavigationProperty Name="CreatedDocuments" Relationship="SQuadro.DocumentCreatedByUser" FromRole="User" ToRole="Document" />
+          <NavigationProperty Name="UpdatedDocuments" Relationship="SQuadro.DocumentUpdatedByUser" FromRole="User" ToRole="Document" />
+          <NavigationProperty Name="UserRole" Relationship="SQuadro.UserRoleUser" FromRole="User" ToRole="UserRole" />
+          <Property Type="Guid" Name="UserRoleID" Nullable="true" />
+        </EntityType>
+        <EntityType Name="RelatedObject" Abstract="true">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Documents" Relationship="SQuadro.RelatedObjectDocument" FromRole="RelatedObject" ToRole="Document" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationRelatedObject" FromRole="RelatedObject" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+          <NavigationProperty Name="UserRoles" Relationship="SQuadro.UserRoleRelatedObject" FromRole="RelatedObject" ToRole="UserRole" />
+        </EntityType>
+        <Association Name="RelatedObjectDocument">
+          <End Type="SQuadro.RelatedObject" Role="RelatedObject" Multiplicity="0..1" />
+          <End Type="SQuadro.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RelatedObject">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="RelatedObjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserOrganization">
+          <End Type="SQuadro.User" Role="User" Multiplicity="*" />
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationArea">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.Area" Role="Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Area">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationCompany">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationContactType">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.ContactType" Role="ContactType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContactType">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationCategory">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.Category" Role="Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationTag">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.Tag" Role="Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationDocumentStatus">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.DocumentStatus" Role="DocumentStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DocumentStatus">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationDocumentType">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.DocumentType" Role="DocumentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DocumentType">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationRelatedObject">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.RelatedObject" Role="RelatedObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RelatedObject">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationDocument">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmailSettings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationEmailSenderTemplate" FromRole="EmailSenderTemplate" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+          <Property Type="Boolean" Name="IsDefault" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="SmtpServer" Nullable="false" MaxLength="256" DefaultValue="" />
+          <Property Type="Int32" Name="SmtpPort" Nullable="false" />
+          <Property Type="String" Name="SmtpUser" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="SmtpPassword" Nullable="false" MaxLength="256" />
+          <Property Type="Boolean" Name="EnableSsl" Nullable="false" />
+        </EntityType>
+        <Association Name="OrganizationEmailSenderTemplate">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.EmailSettings" Role="EmailSenderTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmailSenderTemplate">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DocumentSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationDocumentSet" FromRole="DocumentSet" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+          <NavigationProperty Name="Documents" Relationship="SQuadro.DocumentSetDocument" FromRole="DocumentSet" ToRole="Document" />
+        </EntityType>
+        <Association Name="OrganizationDocumentSet">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.DocumentSet" Role="DocumentSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DocumentSet">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DocumentSetDocument">
+          <End Type="SQuadro.DocumentSet" Role="DocumentSet" Multiplicity="*" />
+          <End Type="SQuadro.Document" Role="Document" Multiplicity="*" />
+        </Association>
+        <Association Name="CreatedBy">
+          <End Type="SQuadro.User" Role="User" Multiplicity="1" />
+          <End Type="SQuadro.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="CreatedByUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UpdatedBy">
+          <End Type="SQuadro.User" Role="User" Multiplicity="0..1" />
+          <End Type="SQuadro.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="UpdatedByUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DocumentCreatedByUser">
+          <End Type="SQuadro.User" Role="User" Multiplicity="1" />
+          <End Type="SQuadro.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="CreatedByUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DocumentUpdatedByUser">
+          <End Type="SQuadro.User" Role="User" Multiplicity="0..1" />
+          <End Type="SQuadro.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="UpdatedByUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmailTemplates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationEmailTemplates" FromRole="EmailTemplates" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="String" Name="Body" Nullable="true" />
+          <Property Type="String" Name="Salutation" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Signature" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Subject" Nullable="true" MaxLength="256" />
+        </EntityType>
+        <Association Name="OrganizationEmailTemplates">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.EmailTemplates" Role="EmailTemplates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmailTemplates">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="256" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationSubject" FromRole="Subject" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+        </EntityType>
+        <Association Name="OrganizationSubject">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.Subject" Role="Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Organization" Relationship="SQuadro.OrganizationUserRole" FromRole="UserRole" ToRole="Organization" />
+          <Property Type="Guid" Name="OrganizationID" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="SQuadro.UserRoleUser" FromRole="UserRole" ToRole="User" />
+          <Property Type="Boolean" Name="IsReadonly" Nullable="false" />
+          <NavigationProperty Name="Categories" Relationship="SQuadro.UserRoleCategory" FromRole="UserRole" ToRole="Category" />
+          <NavigationProperty Name="RelatedObjects" Relationship="SQuadro.UserRoleRelatedObject" FromRole="UserRole" ToRole="RelatedObject" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <Association Name="OrganizationUserRole">
+          <End Type="SQuadro.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="SQuadro.UserRole" Role="UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRoleUser">
+          <End Type="SQuadro.UserRole" Role="UserRole" Multiplicity="0..1" />
+          <End Type="SQuadro.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRoleCategory">
+          <End Type="SQuadro.UserRole" Role="UserRole" Multiplicity="*" />
+          <End Type="SQuadro.Category" Role="Category" Multiplicity="*" />
+        </Association>
+        <Association Name="UserRoleRelatedObject">
+          <End Type="SQuadro.UserRole" Role="UserRole" Multiplicity="*" />
+          <End Type="SQuadro.RelatedObject" Role="RelatedObject" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SQuadroStoreContainer" CdmEntityContainer="EntityContext">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.Company)">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CountryID_Alpha2" ColumnName="CountryID_Alpha2" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedByUserID" ColumnName="CreatedByUserID" />
+          <ScalarProperty Name="UpdatedByUserID" ColumnName="UpdatedByUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.Category)">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.Country)">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="ID_Alpha2" ColumnName="ID_Alpha2" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.Contact)">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="IsPrimary" ColumnName="IsPrimary" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
+          <ScalarProperty Name="ContactTypeID" ColumnName="ContactTypeID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.ContactType)">
+        <MappingFragment StoreEntitySet="ContactTypes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisplayPattern" ColumnName="DisplayPattern" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+          <ScalarProperty Name="SystemType" ColumnName="SystemType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.Area)">
+        <MappingFragment StoreEntitySet="Areas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyAreas">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.CompanyArea)">
+        <MappingFragment StoreEntitySet="CompanyAreas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.CompanyCategory)">
+        <MappingFragment StoreEntitySet="CompanyCategories">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.DocumentType)">
+        <MappingFragment StoreEntitySet="DocumentTypes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentStatuses">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.DocumentStatus)">
+        <MappingFragment StoreEntitySet="DocumentStatuses">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.Tag)">
+        <MappingFragment StoreEntitySet="Tags">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.Document)">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="DocumentTypeID" ColumnName="DocumentTypeID" />
+          <ScalarProperty Name="DocumentStatusID" ColumnName="DocumentStatusID" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="RelatedObjectID" ColumnName="RelatedObjectID" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedByUserID" ColumnName="CreatedByUserID" />
+          <ScalarProperty Name="UpdatedByUserID" ColumnName="UpdatedByUserID" />
+          <ScalarProperty Name="File" ColumnName="File" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.Organization)">
+        <MappingFragment StoreEntitySet="Organizations">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+          <ScalarProperty Name="ForceChangePassword" ColumnName="ForceChangePassword" />
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelatedObjects">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.RelatedObject)">
+        <MappingFragment StoreEntitySet="RelatedObjects">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.Vessel)">
+        <MappingFragment StoreEntitySet="RelatedObjects_Vessel">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailSettings">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.EmailSettings)">
+        <MappingFragment StoreEntitySet="EmailSettings">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SmtpServer" ColumnName="SmtpServer" />
+          <ScalarProperty Name="SmtpPort" ColumnName="SmtpPort" />
+          <ScalarProperty Name="SmtpUser" ColumnName="SmtpUser" />
+          <ScalarProperty Name="SmtpPassword" ColumnName="SmtpPassword" />
+          <ScalarProperty Name="EnableSsl" ColumnName="EnableSsl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentSets">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.DocumentSet)">
+        <MappingFragment StoreEntitySet="DocumentSets">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailTemplates">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.EmailTemplates)">
+        <MappingFragment StoreEntitySet="EmailTemplates">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subjects">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.Subject)">
+        <MappingFragment StoreEntitySet="Subjects">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(SQuadro.UserRole)">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+          <ScalarProperty Name="IsReadonly" ColumnName="IsReadonly" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DocumentSetDocument" TypeName="SQuadro.DocumentSetDocument" StoreEntitySet="DocumentSetDocument">
+      <EndProperty Name="DocumentSet">
+        <ScalarProperty Name="ID" ColumnName="DocumentSets_ID" />
+      </EndProperty>
+      <EndProperty Name="Document">
+        <ScalarProperty Name="ID" ColumnName="Documents_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserRoleCategory" TypeName="SQuadro.UserRoleCategory" StoreEntitySet="UserRoleCategory">
+      <EndProperty Name="UserRole">
+        <ScalarProperty Name="ID" ColumnName="UserRoles_ID" />
+      </EndProperty>
+      <EndProperty Name="Category">
+        <ScalarProperty Name="ID" ColumnName="Categories_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserRoleRelatedObject" TypeName="SQuadro.UserRoleRelatedObject" StoreEntitySet="UserRoleRelatedObject">
+      <EndProperty Name="UserRole">
+        <ScalarProperty Name="ID" ColumnName="UserRoles_ID" />
+      </EndProperty>
+      <EndProperty Name="RelatedObject">
+        <ScalarProperty Name="ID" ColumnName="RelatedObjects_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="SQuadro" >
+        <EntityTypeShape EntityType="SQuadro.Company" Width="1.5" PointX="3" PointY="0.5" Height="3.7109993489583335" />
+        <EntityTypeShape EntityType="SQuadro.Category" Width="1.5" PointX="6.75" PointY="4.25" Height="1.7879850260416665" />
+        <EntityTypeShape EntityType="SQuadro.Country" Width="1.5" PointX="0.5" PointY="0.5" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="SQuadro.Contact" Width="1.5" PointX="5.125" PointY="0.5" Height="2.7494921875" />
+        <EntityTypeShape EntityType="SQuadro.ContactType" Width="1.5" PointX="6.875" PointY="0.5" Height="2.3648893229166661" />
+        <AssociationConnector Association="SQuadro.CountryCompany">
+          <ConnectorPoint PointX="2" PointY="1.2978417968749998" />
+          <ConnectorPoint PointX="3" PointY="1.2978417968749998" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.ContactContactType">
+          <ConnectorPoint PointX="6.625" PointY="1.6824446614583331" />
+          <ConnectorPoint PointX="6.875" PointY="1.6824446614583331" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.CompanyContact">
+          <ConnectorPoint PointX="4.5" PointY="1.87474609375" />
+          <ConnectorPoint PointX="5.125" PointY="1.87474609375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SQuadro.Area" Width="1.5" PointX="0.5" PointY="4.75" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="SQuadro.CompanyArea" Width="1.5" PointX="0.5" PointY="2.375" Height="2.1725878906249996" />
+        <AssociationConnector Association="SQuadro.CompanyCompanyArea">
+          <ConnectorPoint PointX="3" PointY="3.2929996744791667" />
+          <ConnectorPoint PointX="2" PointY="3.2929996744791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.AreaCompanyArea">
+          <ConnectorPoint PointX="1.25" PointY="4.75" />
+          <ConnectorPoint PointX="1.25" PointY="4.547587890625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SQuadro.CompanyCategory" Width="1.5" PointX="4.875" PointY="4.375" Height="2.1725878906249996" />
+        <AssociationConnector Association="SQuadro.CompanyCategoryCompany">
+          <ConnectorPoint PointX="3.5039059999999997" PointY="4.5956022135416656" />
+          <ConnectorPoint PointX="3.5039059999999997" PointY="5.3651432291666659" />
+          <ConnectorPoint PointX="3.8248696666666664" PointY="5.365143229166665" />
+          <ConnectorPoint PointX="3.9915363333333334" PointY="5.3651432291666659" />
+          <ConnectorPoint PointX="4.25" PointY="5.3651432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.CategoryCategoryCompany">
+          <ConnectorPoint PointX="6.75" PointY="5.3651432291666659" />
+          <ConnectorPoint PointX="6.239583333333333" PointY="5.365143229166665" />
+          <ConnectorPoint PointX="6.072916666666667" PointY="5.3651432291666659" />
+          <ConnectorPoint PointX="5.75" PointY="5.3651432291666659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SQuadro.DocumentType" Width="1.5" PointX="9.125" PointY="0.625" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="SQuadro.DocumentStatus" Width="1.5" PointX="8.875" PointY="3.5" Height="1.9802864583333326" />
+        <EntityTypeShape EntityType="SQuadro.Tag" Width="1.5" PointX="9.625" PointY="6.125" Height="1.9802864583333326" />
+        <EntityTypeShape EntityType="SQuadro.Vessel" Width="1.5" PointX="8.875" PointY="8.5" Height="1.0187792968749996" />
+        <EntityTypeShape EntityType="SQuadro.Document" Width="1.5" PointX="11.375" PointY="3.25" Height="5.634013671875" />
+        <AssociationConnector Association="SQuadro.DocumentTypeDocument">
+          <ConnectorPoint PointX="10.625" PointY="1.6151432291666668" />
+          <ConnectorPoint PointX="12.125" PointY="1.6151432291666668" />
+          <ConnectorPoint PointX="12.125" PointY="3.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.DocumentStatusDocument">
+          <ConnectorPoint PointX="10.375" PointY="4.4901432291666659" />
+          <ConnectorPoint PointX="10.447916666666666" PointY="4.490143229166665" />
+          <ConnectorPoint PointX="10.614583333333334" PointY="4.4901432291666659" />
+          <ConnectorPoint PointX="11.375" PointY="4.4901432291666659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SQuadro.Organization" Width="1.5" PointX="0.5" PointY="7.5" Height="3.9033007812499996" />
+        <EntityTypeShape EntityType="SQuadro.User" Width="1.5" PointX="3.125" PointY="7.125" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="SQuadro.RelatedObject" Width="1.5" PointX="13.625" PointY="7.75" Height="1.4033821614583335" />
+        <AssociationConnector Association="SQuadro.RelatedObjectDocument">
+          <ConnectorPoint PointX="13.625" PointY="8.3170068359375" />
+          <ConnectorPoint PointX="12.875" PointY="8.3170068359375" />
+        </AssociationConnector>
+        <InheritanceConnector EntityType="SQuadro.Vessel" >
+          <ConnectorPoint PointX="13.625" PointY="9.6098587596614564" />
+          <ConnectorPoint PointX="12.516763970703384" PointY="10.141379139336181" />
+          <ConnectorPoint PointX="12.358236029296617" PointY="10.141379139336181" />
+          <ConnectorPoint PointX="12" PointY="10.25763458480294" />
+          <ConnectorPoint PointX="12" PointY="9.0093896484375" />
+          <ConnectorPoint PointX="11.770833333333334" PointY="9.0093896484375" />
+          <ConnectorPoint PointX="11.604166666666666" PointY="9.0093896484375" />
+          <ConnectorPoint PointX="10.614583333333334" PointY="9.0093896484375" />
+          <ConnectorPoint PointX="10.447916666666666" PointY="9.0093896484375" />
+          <ConnectorPoint PointX="10.375" PointY="9.0093896484375" />
+        </InheritanceConnector>
+        <AssociationConnector Association="SQuadro.UserOrganization">
+          <ConnectorPoint PointX="3.125" PointY="8.8795475260416659" />
+          <ConnectorPoint PointX="3.1145833333333335" PointY="8.8795475260416659" />
+          <ConnectorPoint PointX="2.9479166666666665" PointY="8.8795475260416659" />
+          <ConnectorPoint PointX="2" PointY="8.8795475260416659" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.OrganizationArea">
+          <ConnectorPoint PointX="1.25" PointY="7.5" />
+          <ConnectorPoint PointX="1.25" PointY="6.7302864583333326" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.OrganizationCompany">
+          <ConnectorPoint PointX="2" PointY="11.130523535684741" />
+          <ConnectorPoint PointX="3.03125" PointY="11.130523535684741" />
+          <ConnectorPoint PointX="3.03125" PointY="4.980205078125" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.OrganizationContactType">
+          <ConnectorPoint PointX="2" PointY="10.662764566651044" />
+          <ConnectorPoint PointX="2.9479166666666665" PointY="10.662764566651044" />
+          <ConnectorPoint PointX="3.1145833333333335" PointY="10.662764566651044" />
+          <ConnectorPoint PointX="4.697916666666667" PointY="10.662764566651044" />
+          <ConnectorPoint PointX="4.864583333333333" PointY="10.662764566651044" />
+          <ConnectorPoint PointX="6.072916666666667" PointY="10.662764566651044" />
+          <ConnectorPoint PointX="6.239583333333333" PointY="10.662764566651044" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="10.662764566651044" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="10.662764566651044" />
+          <ConnectorPoint PointX="8.34375" PointY="10.662764566651044" />
+          <ConnectorPoint PointX="8.34375" PointY="2.8648893229166661" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.OrganizationCategory">
+          <ConnectorPoint PointX="2" PointY="10.962882412902118" />
+          <ConnectorPoint PointX="2.9479166666666665" PointY="10.962882412902118" />
+          <ConnectorPoint PointX="3.1145833333333335" PointY="10.962882412902118" />
+          <ConnectorPoint PointX="4.697916666666667" PointY="10.962882412902118" />
+          <ConnectorPoint PointX="4.864583333333333" PointY="10.962882412902118" />
+          <ConnectorPoint PointX="6.072916666666667" PointY="10.962882412902118" />
+          <ConnectorPoint PointX="6.239583333333333" PointY="10.962882412902118" />
+          <ConnectorPoint PointX="7.5" PointY="10.962882412902118" />
+          <ConnectorPoint PointX="7.5" PointY="6.422587890625" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.OrganizationTag">
+          <ConnectorPoint PointX="1.656252" PointY="7.5" />
+          <ConnectorPoint PointX="1.656252" PointY="6.875" />
+          <ConnectorPoint PointX="2.9479166666666665" PointY="6.8749999999999991" />
+          <ConnectorPoint PointX="3.1145833333333335" PointY="6.875" />
+          <ConnectorPoint PointX="3.3512674947916667" PointY="6.8749999999999991" />
+          <ConnectorPoint PointX="3.5179341614583337" PointY="6.875" />
+          <ConnectorPoint PointX="3.7858683229166665" PointY="6.8749999999999991" />
+          <ConnectorPoint PointX="3.9525349895833335" PointY="6.875" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="6.8749999999999991" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="6.875" />
+          <ConnectorPoint PointX="8.2604166666666661" PointY="6.8749999999999991" />
+          <ConnectorPoint PointX="8.4270833333333339" PointY="6.875" />
+          <ConnectorPoint PointX="8.5" PointY="6.875" />
+          <ConnectorPoint PointX="8.5" PointY="7.0189925130208337" />
+          <ConnectorPoint PointX="8.875" PointY="7.0189925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.OrganizationDocumentStatus">
+          <ConnectorPoint PointX="0.84374799999999994" PointY="7.5" />
+          <ConnectorPoint PointX="0.84374799999999994" PointY="6.925" />
+          <ConnectorPoint PointX="1.1666666666666667" PointY="6.9249999999999989" />
+          <ConnectorPoint PointX="1.3333333333333333" PointY="6.925" />
+          <ConnectorPoint PointX="2.9479166666666665" PointY="6.9249999999999989" />
+          <ConnectorPoint PointX="3.1145833333333335" PointY="6.925" />
+          <ConnectorPoint PointX="3.3512674947916667" PointY="6.9249999999999989" />
+          <ConnectorPoint PointX="3.5179341614583337" PointY="6.925" />
+          <ConnectorPoint PointX="3.7858683229166665" PointY="6.9249999999999989" />
+          <ConnectorPoint PointX="3.9525349895833335" PointY="6.925" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="6.9249999999999989" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="6.925" />
+          <ConnectorPoint PointX="8.2604166666666661" PointY="6.9249999999999989" />
+          <ConnectorPoint PointX="8.4270833333333339" PointY="6.925" />
+          <ConnectorPoint PointX="8.575" PointY="6.925" />
+          <ConnectorPoint PointX="8.575" PointY="4.4901432291666659" />
+          <ConnectorPoint PointX="8.875" PointY="4.4901432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.OrganizationDocumentType">
+          <ConnectorPoint PointX="2" PointY="11.298164658467364" />
+          <ConnectorPoint PointX="4.697916666666667" PointY="11.298164658467364" />
+          <ConnectorPoint PointX="4.864583333333333" PointY="11.298164658467364" />
+          <ConnectorPoint PointX="6.072916666666667" PointY="11.298164658467364" />
+          <ConnectorPoint PointX="6.239583333333333" PointY="11.298164658467364" />
+          <ConnectorPoint PointX="10.53125" PointY="11.298164658467364" />
+          <ConnectorPoint PointX="10.53125" PointY="2.6052864583333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.OrganizationRelatedObject">
+          <ConnectorPoint PointX="2" PointY="11.428554850873191" />
+          <ConnectorPoint PointX="4.697916666666667" PointY="11.428554850873191" />
+          <ConnectorPoint PointX="4.864583333333333" PointY="11.428554850873191" />
+          <ConnectorPoint PointX="6.072916666666667" PointY="11.428554850873191" />
+          <ConnectorPoint PointX="6.239583333333333" PointY="11.428554850873191" />
+          <ConnectorPoint PointX="14.375" PointY="11.428554850873191" />
+          <ConnectorPoint PointX="14.375" PointY="9.7302864583333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.OrganizationDocument">
+          <ConnectorPoint PointX="2" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="2.9479166666666665" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="3.1145833333333335" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="4.697916666666667" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="4.864583333333333" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="6.072916666666667" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="6.239583333333333" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="8.2604166666666661" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="8.4270833333333339" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="10.447916666666666" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="10.614583333333334" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="12.4375" PointY="10.514755738380998" />
+          <ConnectorPoint PointX="12.4375" PointY="8.6917122395833317" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SQuadro.EmailSettings" Width="1.5" PointX="3.375" PointY="11.625" Height="3.1340950520833317" />
+        <AssociationConnector Association="SQuadro.OrganizationEmailSenderTemplate">
+          <ConnectorPoint PointX="2" PointY="10.415904788753334" />
+          <ConnectorPoint PointX="2.9479166666666665" PointY="10.415904788753334" />
+          <ConnectorPoint PointX="3.1145833333333335" PointY="10.415904788753334" />
+          <ConnectorPoint PointX="4.78125" PointY="10.415904788753334" />
+          <ConnectorPoint PointX="4.78125" PointY="11.625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SQuadro.DocumentSet" Width="1.5" PointX="9.75" PointY="10.875" Height="1.4033821614583335" />
+        <AssociationConnector Association="SQuadro.OrganizationDocumentSet">
+          <ConnectorPoint PointX="2" PointY="11.543331032207423" />
+          <ConnectorPoint PointX="5.5468725" PointY="11.543331032207423" />
+          <ConnectorPoint PointX="5.5468725" PointY="12.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.DocumentSetDocument">
+          <ConnectorPoint PointX="6.15625" PointY="12.5" />
+          <ConnectorPoint PointX="6.15625" PointY="8.0761465932816172" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="8.0761465932816172" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="8.0761465932816172" />
+          <ConnectorPoint PointX="8.2604166666666661" PointY="8.0761465932816172" />
+          <ConnectorPoint PointX="8.4270833333333339" PointY="8.0761465932816172" />
+          <ConnectorPoint PointX="10.447916666666666" PointY="8.0761465932816172" />
+          <ConnectorPoint PointX="10.614583333333334" PointY="8.0761465932816172" />
+          <ConnectorPoint PointX="11.375" PointY="8.0761465932816172" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.CreatedBy">
+          <ConnectorPoint PointX="3.851806625" PointY="7.125" />
+          <ConnectorPoint PointX="3.851806625" PointY="4.980205078125" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.UpdatedBy">
+          <ConnectorPoint PointX="3.4259033125" PointY="7.125" />
+          <ConnectorPoint PointX="3.4259033125" PointY="4.980205078125" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.DocumentCreatedByUser">
+          <ConnectorPoint PointX="4.625" PointY="8.3193232966408086" />
+          <ConnectorPoint PointX="6.072916666666667" PointY="8.3193232966408086" />
+          <ConnectorPoint PointX="6.239583333333333" PointY="8.3193232966408086" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="8.3193232966408086" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="8.3193232966408086" />
+          <ConnectorPoint PointX="8.2604166666666661" PointY="8.3193232966408086" />
+          <ConnectorPoint PointX="8.4270833333333339" PointY="8.3193232966408086" />
+          <ConnectorPoint PointX="10.447916666666666" PointY="8.3193232966408086" />
+          <ConnectorPoint PointX="10.614583333333334" PointY="8.3193232966408086" />
+          <ConnectorPoint PointX="11.375" PointY="8.3193232966408086" />
+        </AssociationConnector>
+        <AssociationConnector Association="SQuadro.DocumentUpdatedByUser">
+          <ConnectorPoint PointX="4.625" PointY="9.86132921810559" />
+          <ConnectorPoint PointX="6.072916666666667" PointY="9.86132921810559" />
+          <ConnectorPoint PointX="6.239583333333333" PointY="9.86132921810559" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="9.86132921810559" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="9.86132921810559" />
+          <ConnectorPoint PointX="8.2604166666666661" PointY="9.86132921810559" />
+          <ConnectorPoint PointX="8.4270833333333339" PointY="9.86132921810559" />
+          <ConnectorPoint PointX="10.447916666666666" PointY="9.86132921810559" />
+          <ConnectorPoint PointX="10.614583333333334" PointY="9.86132921810559" />
+          <ConnectorPoint PointX="11.6875" PointY="9.86132921810559" />
+          <ConnectorPoint PointX="11.6875" PointY="8.6917122395833317" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SQuadro.EmailTemplates" Width="1.5" PointX="1" PointY="12.125" Height="2.1725878906249996" />
+        <AssociationConnector Association="SQuadro.OrganizationEmailTemplates">
+          <ConnectorPoint PointX="1.5" PointY="11.595602213541666" />
+          <ConnectorPoint PointX="1.5" PointY="12.125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SQuadro.Subject" Width="1.5" PointX="5.375" PointY="7.75" />
+        <AssociationConnector Association="SQuadro.OrganizationSubject" />
+        <EntityTypeShape EntityType="SQuadro.UserRole" Width="1.5" PointX="5.5" PointY="11.625" />
+        <AssociationConnector Association="SQuadro.OrganizationUserRole" />
+        <AssociationConnector Association="SQuadro.UserRoleUser" />
+        <AssociationConnector Association="SQuadro.UserRoleCategory" />
+        <AssociationConnector Association="SQuadro.UserRoleRelatedObject" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

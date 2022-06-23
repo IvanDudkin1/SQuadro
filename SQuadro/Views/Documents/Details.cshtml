@@ -1,0 +1,147 @@
+﻿@using SQuadro.Models;
+@model DocumentModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("SetDocumentDetails", "Documents", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "formDetail", enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.ID, new { id = "documentID" })
+    @Html.HiddenFor(m => m.OrganizationID)
+    @Html.HiddenFor(m => m.FileName, new { id = "hfFileName" })
+    @Html.ValidationSummary(true)
+    Dictionary<string, object> attrs = new Dictionary<string, object>();
+    attrs["id"] = "inputFile";
+    attrs["type"] = "file";
+    attrs["class"] = "form-control file-input custom_file_validation";
+    attrs["onchange"] = "documentForm.fileSelected(this)";
+    attrs["data-uploaded-file-name"] =  Model.FileName;
+    attrs["data-uploaded-file-name-target"] = "#hfFileName";
+    if (String.IsNullOrWhiteSpace(Model.FileName))
+    {
+        attrs["data-custom-file-validation-required"] = "required";
+    }
+    <div class="form-group">
+        @Html.LabelFor(m => m.DocumentFile, new { @class = "control-label col-lg-4", @for = "inputFile" })
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.DocumentFile, attrs)
+            @Html.ValidationMessageFor(m => m.DocumentFile)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-4", @for = "inputName" })
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.Name, new { id = "inputName", @class = "form-control", placeholder = "Type here..." })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Number, new { @class = "control-label col-lg-4", @for = "inputNumber" })
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.Number, new { id = "inputNumber", @class = "form-control", placeholder = "Type here..." })
+            @Html.ValidationMessageFor(m => m.Number)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Date, new { @class = "control-label col-lg-4", @for = "inputDate" })
+        <div class="col-lg-8">
+            @Html.CalendarFor(m => m.Date, new { id = "inputDate", @class = "form-control", placeholder = "Click to select or type..." })
+            @Html.ValidationMessageFor(m => m.Date)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ExpirationDate, new { @class = "control-label col-lg-4", @for = "inputExpirationDate" })
+        <div class="col-lg-8">
+            @Html.CalendarFor(m => m.ExpirationDate, new { id = "inputExpirationDate", @class = "form-control", placeholder = "Click to select or type..." })
+            @Html.ValidationMessageFor(m => m.ExpirationDate)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DocumentTypeID, new { @class = "control-label col-lg-4", @for = "inputDocumentType" })
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.DocumentTypeID, new Dictionary<string, object>() { { "id", "inputDocumentType" }, { "placeholder", "Click to select or type..." }, { "class", "select2 ajax-select add-new" }, { "data-feed", @Url.Action("GetList", "DocumentTypes") }, { "data-init", @Url.Action("GetSelectedItem", "DocumentTypes") }, { "data-add", @Url.Action("AddNew", "DocumentTypes") } })
+            @Html.ValidationMessageFor(m => m.DocumentTypeID)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DocumentStatusID, new { @class = "control-label col-lg-4", @for = "inputDocumentStatus" })
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.DocumentStatusID, new Dictionary<string, object>() { { "id", "inputDocumentStatus" }, { "placeholder", "Click to select or type..." }, { "class", "select2 ajax-select add-new" }, { "data-feed", @Url.Action("GetList", "DocumentStatuses") }, { "data-init", @Url.Action("GetSelectedItem", "DocumentStatuses") }, { "data-add", @Url.Action("AddNew", "DocumentStatuses") } })
+            @Html.ValidationMessageFor(m => m.DocumentStatusID)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DocumentSets, new { @class = "control-label col-lg-4", @for = "inputDocumentSets" })
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.DocumentSets, new Dictionary<string, object>() { { "id", "inputDocumentSets" }, { "placeholder", "Click to select or type..." }, { "class", "select2 ajax-select add-new multi-choice" }, { "data-feed", @Url.Action("GetList", "DocumentSets") }, { "data-init", @Url.Action("GetSelectedItems", "DocumentSets") }, { "data-add", @Url.Action("AddNew", "DocumentSets") } })
+            @Html.ValidationMessageFor(m => m.DocumentSets)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.RelatedObjectID, new { @class = "control-label col-lg-4", @for = "inputRelatedObject" })
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.RelatedObjectID, new Dictionary<string, object>() { { "id", "inputRelatedObject" }, { "placeholder", "Click to select or type..." }, { "class", "select2 ajax-select add-new" }, { "data-feed", @Url.Action("GetList", "Vessels") }, { "data-init", @Url.Action("GetSelectedItem", "Vessels") }, { "data-add", @Url.Action("AddNew", "Vessels") } })
+            @Html.ValidationMessageFor(m => m.RelatedObjectID)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Comment, new { @class = "control-label col-lg-4", @for = "inputComment" })
+        <div class="col-lg-8">
+            @Html.TextAreaFor(m => m.Comment, new { id = "inputComment", @class = "form-control autosize", placeholder = "Put your comment here..." })
+            @Html.ValidationMessageFor(m => m.Comment)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Tags, new { @class = "control-label col-lg-4", @for = "inputTag" })
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.Tags, new Dictionary<string, object>() { { "id", "inputTag" }, { "placeholder", "Click to select or type..." }, { "class", "select2 ajax-select add-new multi-choice" }, { "data-feed", @Url.Action("GetList", "Tags") }, { "data-init", @Url.Action("GetSelectedItem", "Tags") }, { "data-add", @Url.Action("AddNew", "Tags") } })
+            @Html.ValidationMessageFor(m => m.Tags)
+        </div>
+    </div>
+    if (Model.ID != Guid.Empty)
+    {
+        <a .href="#" data-toggle="collapse" data-target="#additionalInfo">Additional Info</a>
+        <div id="additionalInfo" class="collapse out">
+            <div class="form-group">
+                @Html.LabelFor(m => m.CreatedBy, new { @class = "control-label col-lg-4" })
+                <div class="col-lg-8">
+                    <em class="field-view">@Html.Raw(Model.CreatedBy)</em>
+                    @Html.HiddenFor(m => m.CreatedBy)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.CreatedOn, new { @class = "control-label col-lg-4" })
+                <div class="col-lg-8">
+                    <em class="field-view">@Html.Raw(Model.CreatedOn.ToString("g"))</em>
+                    @Html.HiddenFor(m => m.CreatedOn)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.UpdatedBy, new { @class = "control-label col-lg-4" })
+                <div class="col-lg-8">
+                    <em class="field-view">@Html.Raw(Model.UpdatedBy)</em>
+                    @Html.HiddenFor(m => m.UpdatedBy)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.UpdatedOn, new { @class = "control-label col-lg-4" })
+                <div class="col-lg-8">
+                    <em class="field-view">@Html.Raw(Model.UpdatedOn.HasValue ? Model.UpdatedOn.Value.ToString("g") : String.Empty)</em>
+                    @Html.HiddenFor(m => m.UpdatedOn)
+                </div>
+            </div>
+        </div>
+    }
+}
+<script type="text/javascript">
+    var documentForm = {
+        fileSelected: function (target) {
+            if (target.value) {
+                var path = '' + target.value;
+                var fileName = path.substr(path.lastIndexOf('\\') + 1);
+                fileName = fileName.substr(0, fileName.lastIndexOf('.')) || fileName;
+
+                $(target).closest('form').find('#inputName').val(fileName);
+            }
+        }
+    }
+</script> 

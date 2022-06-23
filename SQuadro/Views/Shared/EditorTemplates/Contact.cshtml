@@ -1,0 +1,38 @@
+﻿@using SQuadro.Models
+@model ContactModel
+<tr>
+    <td class="tdType">
+        <input type="hidden" class="index" value="@ViewData["Index"]" />
+        @Html.HiddenFor(m => m.ID)
+        @Html.HiddenFor(m => m.Type, new Dictionary<string, object>() { 
+            { "id", "contactType" },
+            { "placeholder", "Click to select or type..." },
+            { "class", "select2 ajax-select add-new" },
+            { "data-feed", @Url.Action("GetList", "ContactTypes") },
+            { "data-init", @Url.Action("GetSelectedItem", "ContactTypes") },
+            { "data-add", @Url.Action("AddNew", "ContactTypes") },
+            { "data-width", "100%" }
+        })
+        @Html.ValidationMessageFor(m => m.Type)
+    </td>
+    <td class="tdContact">
+        @Html.TextBoxFor(m => m.Data, new { id = "contactData", @class = "form-control", placeholder = "Type here..." })
+        @Html.ValidationMessageFor(m => m.Data)
+    </td>
+    <td class="tdDefault">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" class="ace" checked="@Model.IsPrimary" onchange="$(this).closest('.checkbox').find('.checkbox-value').val(this.checked)"/>
+                <span class="lbl"></span>
+            </label>
+            @Html.HiddenFor(m => m.IsPrimary, new { @class = "checkbox-value" })
+        </div>
+        @Html.ValidationMessageFor(m => m.IsPrimary)
+    </td>
+    <td class="tdComment">
+        @Html.TextBoxFor(m => m.Comment, new { @class = "form-control", placeholder = "Put your comment here..." })
+    </td>
+    <td class="tdDelete">
+        <a href="#" class="wclose pull-right" title="Delete contact" onclick="@ViewData["DeleteScript"]"><i class="glyphicon glyphicon-remove"></i></a>
+    </td>
+</tr>

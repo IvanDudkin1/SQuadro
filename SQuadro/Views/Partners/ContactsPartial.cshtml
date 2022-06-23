@@ -1,0 +1,48 @@
+﻿@using SQuadro.Models
+@model IList<ContactModel>
+@{
+    if (Model.Any())
+    {
+        <table class="table table-stripped responsive">
+            <thead>
+                <tr>
+                    <th><span>Type</span></th>
+                    <th><span>Contact</span></th>
+                    <th><span>Default</span></th>
+                    <th><span>Comment</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var contact in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.HiddenFor(m => contact.ID, new { id = "id" })
+                                @Html.Raw(contact.TypeName)
+                            </td>
+                            <td>
+                                @Html.Raw(contact.ContactDisplay)
+                            </td>
+                            <td>
+                                @{
+                                    if (contact.IsPrimary)
+                                    {
+                                        @Html.Raw("<span class=\"glyphicon glyphicon-ok\"/>")
+                                    }
+                                }
+                            </td>
+                            <td>
+                                @Html.Raw(contact.Comment)
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h4>There are no any contact details</h4>
+    }
+}

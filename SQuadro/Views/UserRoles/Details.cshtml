@@ -1,0 +1,55 @@
+﻿@using SQuadro.Models;
+@model UserRoleModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("SetUserRoleDetails", "UserRoles", FormMethod.Post, new { @class = "form-horizontal", id = "formDetail" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m => m.OrganizationID)
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-4", @for = "inputName" })
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.Name, new { id = "inputName", @class = "form-control", placeholder = "Input New User Role Name" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-4 col-lg-8">
+            <label class="checkbox-container">
+                @Html.HiddenFor(m => m.IsReadOnly, new { @class = "checkbox-value" })
+                <input type="checkbox" checked="@Model.IsReadOnly" onchange="$(this).closest('.checkbox-container').find('.checkbox-value').val(this.checked)"/> Readonly Access
+            </label>
+            @Html.ValidationMessageFor(m => m.IsReadOnly)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Categories, new { @class = "control-label col-lg-4", @for = "inputCategories" })
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.Categories, new Dictionary<string, object>() { 
+                { "id", "inputCategories" },
+                { "placeholder", "All Companies" },
+                { "class", "select2 ajax-select multi-choice" },
+                { "data-feed", @Url.Action("GetList", "Categories") },
+                { "data-init", @Url.Action("GetSelectedItems", "Categories") },
+                { "data-width", "100%" } 
+            })
+            @Html.ValidationMessageFor(m => m.Categories)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.RelatedObjects, new { @class = "control-label col-lg-4", @for = "inputRelatedObjects" })
+        <div class="col-lg-8">
+            @Html.HiddenFor(m => m.RelatedObjects, new Dictionary<string, object>() { 
+                { "id", "inputRelatedObjects" }, 
+                { "placeholder", "All Documents" }, 
+                { "class", "select2 ajax-select multi-choice" }, 
+                { "data-feed", @Url.Action("GetList", "Vessels") }, 
+                { "data-init", @Url.Action("GetSelectedItems", "Vessels") }
+            })
+            @Html.ValidationMessageFor(m => m.RelatedObjects)
+        </div>
+    </div>
+}

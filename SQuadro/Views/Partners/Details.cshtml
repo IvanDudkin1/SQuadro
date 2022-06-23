@@ -1,0 +1,208 @@
+﻿@using SQuadro.Models;
+@model PartnerModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("SetPartnerDetails", "Partners", FormMethod.Post, new { @class = "form-horizontal container", role = "form", id = "formDetail" }))
+{
+    @Html.HiddenFor(m => m.ID, new { id = "partnerID" })
+    @Html.HiddenFor(m => m.OrganizationID)
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-4", @for = "inputName" })
+                <div class="col-lg-8">
+                    @Html.TextBoxFor(m => m.Name, new { id = "inputName", style = "width:97%", placeholder = "Type here..." })
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.FullName, new { @class = "control-label col-lg-4", @for = "inputFullName" })
+                <div class="col-lg-8">
+                    @Html.TextBoxFor(m => m.FullName, new { id = "inputFullName", style = "width:97%", placeholder = "Type here..." })
+                    @Html.ValidationMessageFor(m => m.FullName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Country, new { @class = "control-label col-lg-4", @for = "inputCountry" })
+                <div class="col-lg-8">
+                    @Html.HiddenFor(m => m.Country, new Dictionary<string, object>() { 
+                        { "id", "inputCountry" }, 
+                        { "placeholder", "Click to select" }, 
+                        { "class", "select2 ajax-select" }, 
+                        { "data-feed", @Url.Action("GetList", "Countries") }, 
+                        { "data-init", @Url.Action("GetSelectedItem", "Countries") }, 
+                        { "data-width", "100%" } })
+                    @Html.ValidationMessageFor(m => m.Country)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address, new { @class = "control-label col-lg-4", @for = "inputAddress" })
+                <div class="col-lg-8">
+                    @Html.TextBoxFor(m => m.Address, new { id = "inputAddress", style = "width:97%", placeholder = "Type here..." })
+                    @Html.ValidationMessageFor(m => m.Address)
+                </div>
+            </div>
+            @{
+                if (Model.ID != Guid.Empty)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CreatedBy, new { @class = "control-label col-lg-4" })
+                        <div class="col-lg-8">
+                            <em class="field-view">@Html.Raw(Model.CreatedBy)</em>
+                            @Html.HiddenFor(m => m.CreatedBy)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CreatedOn, new { @class = "control-label col-lg-4" })
+                        <div class="col-lg-8">
+                            <em class="field-view">@Html.Raw(Model.CreatedOn.ToString("g"))</em>
+                            @Html.HiddenFor(m => m.CreatedOn)
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Categories, new { @class = "control-label col-lg-4", @for = "inputCategories" })
+                <div class="col-lg-8">
+                    @Html.HiddenFor(m => m.Categories, new Dictionary<string, object>() { 
+                        { "id", "inputCategories" },
+                        { "placeholder", "Click to select or type..." },
+                        { "class", "select2 ajax-select add-new multi-choice" },
+                        { "data-feed", @Url.Action("GetList", "Categories") },
+                        { "data-init", @Url.Action("GetSelectedItems", "Categories") },
+                        { "data-add", @Url.Action("AddNew", "Categories") },
+                        { "data-width", "100%" } 
+                    })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Areas, new { @class = "control-label col-lg-4", @for = "inputAreas" })
+                <div class="col-lg-8">
+                    @Html.HiddenFor(m => m.Areas, new Dictionary<string, object>() { 
+                        { "id", "inputAreas" },
+                        { "placeholder", "Click to select or type..." },
+                        { "class", "select2 ajax-select add-new multi-choice" },
+                        { "data-feed", @Url.Action("GetList", "Areas") }, 
+                        { "data-init", @Url.Action("GetSelectedItems", "Areas") },
+                        { "data-add", @Url.Action("AddNew", "Areas") },
+                        { "data-width", "100%" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Comment, new { @class = "control-label col-lg-4", @for = "inputComment" })
+                <div class="col-lg-8">
+                    @Html.TextAreaFor(m => m.Comment, new { id = "inputComment", @class = "autosize", style="width:97%", placeholder = "Put your comment here..." })
+                    @Html.ValidationMessageFor(m => m.Comment)
+                </div>
+            </div>
+            @{
+                if (Model.ID != Guid.Empty)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UpdatedBy, new { @class = "control-label col-lg-4" })
+                        <div class="col-lg-8">
+                            <em class="field-view">@Html.Raw(Model.UpdatedBy)</em>
+                            @Html.HiddenFor(m => m.UpdatedBy)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UpdatedOn, new { @class = "control-label col-lg-4" })
+                        <div class="col-lg-8">
+                            <em class="field-view">@Html.Raw(Model.UpdatedOn.HasValue ? Model.UpdatedOn.Value.ToString("g") : String.Empty)</em>
+                            @Html.HiddenFor(m => m.UpdatedOn)
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="row contacts">
+        <div class="col-md-12 marginbot10">
+            <span class="btn btn-default btn-primary" onclick="partnerDetails.addContact(event)">Add new Contact</span>
+        </div>
+        @{
+            if (Model.Contacts != null)
+            {
+                <table class = "table table-condensed table-hover responsive">
+                    <thead>
+                        <tr>
+                            <th class="tdType">Type</th>
+                            <th class="tdContact">Contact</th>
+                            <th class="tdDefault">Default</th>
+                            <th class="tdComment">Comment</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            for (int i = 0; i < Model.Contacts.Count; i++)
+                            {
+                                @Html.EditorFor(m => m.Contacts[i], "Contact", new { DeleteScript = "partnerDetails.deleteContact(event)", Index = i })
+                            }
+                        }
+                    </tbody>
+                </table>
+            }
+        }
+    </div>
+}
+<script type="text/javascript">
+    var partnerDetails = {
+        addContact: function (e) {
+            var $form = $(e.target).closest('form');
+            var $container = $form.closest('.modal-body');
+            uri = '@(Url.Action("AddNewContact", "Partners"))';
+            $.ajax({
+                cache: false,
+                url: encodeURI(uri),
+                type: 'post',
+                data: $form.serialize(),
+                dataType: 'json',
+                complete: function (data) {
+                    document.body.style.cursor = 'default';
+                },
+                success: function (data) {
+                    if (!data.Result) {
+                        modalService.showAlert(data.Description, 'alert-error', 'Error');
+                    }
+                    else {
+                        $container.html(data.Content).trigger('contentchanged');
+                    }
+                }
+            });
+            document.body.style.cursor = 'wait';
+        },
+
+        deleteContact: function (e) {
+            var $form = $(e.target).closest('form');
+            var $container = $form.closest('.modal-body');
+            uri = '@(Url.Action("DeleteContact", "Partners"))';
+            var index = $(e.target).closest('tr').find('.index').val();
+            var data = $form.serializeObject();
+            data.index = index;
+            $.ajax({
+                cache: false,
+                url: encodeURI(uri),
+                type: 'post',
+                data: data,
+                dataType: 'json',
+                complete: function (data) {
+                    document.body.style.cursor = 'default';
+                },
+                success: function (data) {
+                    if (!data.Result) {
+                        modalService.showAlert(data.Description, 'alert-error', 'Error');
+                    }
+                    else {
+                        $container.html(data.Content).trigger('contentchanged');
+                    }
+                }
+            });
+            document.body.style.cursor = 'wait';
+        }
+    }
+</script>

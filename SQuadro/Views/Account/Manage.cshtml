@@ -1,0 +1,64 @@
+﻿@using SQuadro.Models
+@model AccountModel
+@{
+    ViewBag.Title = "Manage Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IUsersHelper IUsersHelper = new UsersHelper();
+    var currentUser = IUsersHelper.CurrentUser;
+}
+@Html.Partial("Header")
+@using (Html.BeginForm("Manage", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal form-centered" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.ID)
+    <div class="form-group">
+        You're logged in as <strong>@currentUser.Name (@currentUser.Email)</strong>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-4", @for = "inputName" })
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.Name, new { id = "inputName", @class = "form-control", placeholder = "e.g. John Smith", autofocus = "autofocus" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "control-label col-lg-4", @for = "inputEmail" })
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.Email, new { id = "inputEmail", @class = "form-control", placeholder = "e.g. j.smith@example.com" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+    </div>
+    if (currentUser.IsAdmin)
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Organization, new { @class = "control-label col-lg-4", @for = "inputOrganization" })
+            <div class="col-lg-8">
+                @Html.TextBoxFor(m => m.Organization, new { id = "inputOrganization", @class = "form-control", placeholder = "e.g. Example Limited" })
+                @Html.ValidationMessageFor(m => m.Organization)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Timezone, new { @class = "control-label col-lg-4", @for = "inputTimezone" })
+            <div class="col-lg-8">
+                @Html.DropDownListFor(m => m.Timezone, ListsHelper.TimeZonesList(), new { id = "inputTimezone", @class = "select2" })
+                @Html.ValidationMessageFor(m => m.Timezone)
+            </div>
+        </div>
+    }
+    else
+    {
+        @Html.HiddenFor(m => m.Organization)
+        @Html.HiddenFor(m => m.Timezone)
+    }
+    <div class="form-group">
+        <div class="col-lg-8">
+            @Html.ActionLink("Change Password", "ChangePassword", "Account") 
+        </div>
+    </div>
+    <div class="form-group-nomargin">
+        <div class="pull-right">
+            <button type="submit" class="btn btn-default btn-inverse btn-lg">Submit</button>
+        </div>
+    </div>
+}

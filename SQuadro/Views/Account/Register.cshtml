@@ -1,0 +1,74 @@
+﻿@using Recaptcha.Web.Mvc;
+@model SQuadro.Models.RegisterModel
+@{
+    ViewBag.Title = "Sign Up";
+    Layout = "~/Views/Shared/_LayoutAnonym.cshtml";
+}
+<div class="account-container register stacked">
+	<div class="content clearfix">
+		@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            <h1>Create Your Account</h1>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="login-fields">
+                <div class="field">
+                    @Html.LabelFor(m => m.Email)
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Input your Email Address", title = "Input your Email Address", autofocus = "autofocus" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+                <div class="field">
+                    @Html.LabelFor(m => m.Organization)
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        @Html.TextBoxFor(m => m.Organization, new { @class = "form-control", placeholder = "Input your Organization Name", title = "Input your Organization Name" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Organization)
+                </div>
+                <div class="field">
+                    @Html.LabelFor(m => m.Name)
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Input your Full Name", title = "Input your Full Name" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Name)
+                </div>
+                <div class="field">
+                    @Html.LabelFor(m => m.Password)
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", title = "Password" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+                <div class="field">
+                    @Html.LabelFor(m => m.ConfirmPassword)
+                    <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Password Confirmation", title = "Password Confirmation" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </div>
+                <div class="field">
+                    @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean)
+                </div>
+            </div>
+            <div class="login-actions">
+                <span class="login-checkbox">
+					<label for='accept_terms'>
+					    @Html.CheckBoxFor(m => m.AcceptTermsAndConditions, new { id = "accept_terms", @class = "field login-checkbox" }) Accept @Html.ActionLink("Terms & Conditions", "TermsAndConditions")
+				    </label>
+                    @Html.ValidationMessageFor(m => m.AcceptTermsAndConditions)
+				</span>
+				<button class="login-action btn btn-primary">Register</button>
+			</div> <!-- .actions -->
+        }
+	</div> <!-- /content -->
+</div>
+<div class="login-extra">
+	Already have an account? @Html.ActionLink("Login", "Login")
+</div>
+   

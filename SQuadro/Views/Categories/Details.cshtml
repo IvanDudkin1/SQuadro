@@ -1,0 +1,18 @@
+﻿@using SQuadro.Models;
+@model CategoryModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("SetCategoryDetails", "Categories", FormMethod.Post, new { @class = "form-horizontal", id = "formDetail" }))
+{
+    @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m => m.OrganizationID)
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-4", @for = "inputName" })
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.Name, new { id = "inputName", @class = "form-control", placeholder = "Input new Category name" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+}

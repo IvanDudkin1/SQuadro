@@ -1,0 +1,18 @@
+﻿@using SQuadro.Models;
+@model SubjectModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("SetSubjectDetails", "Subjects", FormMethod.Post, new { @class = "form-horizontal", id = "formDetail" }))
+{
+    @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m => m.OrganizationID)
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Text, new { @class = "control-label col-lg-3", @for = "inputText" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(m => m.Text, new { id = "inputText", @class = "form-control", placeholder = "Input New Email Subject" })
+            @Html.ValidationMessageFor(m => m.Text)
+        </div>
+    </div>
+}

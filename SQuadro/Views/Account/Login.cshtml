@@ -1,0 +1,105 @@
+﻿@using SQuadro.Models  
+@model LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutAnonym.cshtml";
+}
+<div class="account-container stacked">
+	<div class="content clearfix">
+		@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            <h1>Sign In</h1>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+			<div class="login-fields">
+                <p>Sign in using your registered account:</p>
+				<div class="field">
+                    @Html.LabelFor(m => m.UserName)
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+					    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-lg username-field", placeholder = "Email", autofocus = "autofocus" })
+                    </div>
+                </div>
+				<div class='field'>
+                    @Html.LabelFor(m => m.Password)
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+					    @Html.PasswordFor(m => m.Password, new { @class = "form-control input-lg password-field", placeholder = "Password" })
+                    </div>
+                </div>
+			</div>
+            <div class="login-actions">
+    			<span class="login-checkbox">
+					<label for='remember_me'>
+					    @Html.CheckBoxFor(m => m.RememberMe, new { id = "remember_me", @class = "field login-checkbox" }) Remember me
+				    </label>
+				</span>
+				<button class="login-action btn btn-primary">Sign In</button>
+			</div> <!-- .actions -->
+        }
+	</div> <!-- /content -->
+</div>
+<div class="login-extra">
+	Don't have an account? @Html.ActionLink("Sign Up", "Register")<br/>
+	Remind <a href="#" onclick="loginPage.forgotPassword()">Password</a>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        var loginPage = {
+            forgotPassword: function () {
+                var uriForgotPassword = '@(Url.Action("ForgotPassword", "Account"))';
+
+                $.ajax({
+                    cache: false,
+                    url: encodeURI(uriForgotPassword),
+                    type: 'get',
+                    dataType: 'html',
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        if (XMLHttpRequest.status === 401) {
+                            location.reload();
+                        }
+                    },
+                    complete: function (data) {
+                        $ajaxLoader.remove();
+                    },
+                    success: function (data) {
+                        var $modal = modalService.createModal('', { Cancel: true, Save: { name: "Submit", callback: function () {
+                            var $form = $('form', $modal);
+                            var data = $form.serializeObject();
+                            $.ajax({
+                                cache: false,
+                                url: $form[0].action,
+                                type: $form[0].method,
+                                dataType: 'json',
+                                data: data,
+                                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                    if (XMLHttpRequest.status === 401) {
+                                        location.reload();
+                                    }
+                                },
+                                complete: function (data) {
+                                    $ajaxLoader.remove();
+                                },
+                                success: function (data) {
+                                    if (!data.Result) {
+                                        $('.modal-body', $modal).html(data.Content);
+                                    }
+                                    else {
+                                        $modal.modal('hide');
+                                        alerts.show('Password reset link has been sent to the email provided');
+                                    }
+                                }
+                            });
+                            var $ajaxLoader = new ajaxLoader($modal);
+                        }
+                        }
+                        });
+                        $('.modal-body', $modal).html(data);
+                        $modal.modal();
+                    }
+                });
+                var $ajaxLoader = new ajaxLoader();
+            }
+        }
+    </script>
+}

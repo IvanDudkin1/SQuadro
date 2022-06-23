@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,greek-ext,greek' rel='stylesheet' type='text/css'>
+        @Styles.Render("~/styles/themes")
+        @Styles.Render("~/Content/Site-SignIn.css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/Scripts/library/extensions.js")
+    </head>
+    <body>
+        <div id="bodyContainer">
+            @RenderBody()        
+        </div>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

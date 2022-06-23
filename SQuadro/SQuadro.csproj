@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B49746DF-3B8B-4779-93D6-7342C2617E98}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SQuadro</RootNamespace>
+    <AssemblyName>SQuadro</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AspNetHaack">
+      <HintPath>..\packages\AspNetHaack.0.0.1\lib\net40\AspNetHaack.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebHelpers.3.2.6\lib\net45\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.30506.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.2.0\lib\net40-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC4.3.2.1.0\lib\net40-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Recaptcha.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=171a6ec5fa4b1644, processorArchitecture=MSIL">
+      <HintPath>..\packages\RecaptchaNet.2.1.0\lib\net451\Recaptcha.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.6\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.6\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FormsAuthenticationConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\AreasController.cs" />
+    <Compile Include="Controllers\ContactTypesController.cs" />
+    <Compile Include="Controllers\UserRolesController.cs" />
+    <Compile Include="Controllers\SubjectsController.cs" />
+    <Compile Include="Controllers\EmailTemplatesController.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
+    <Compile Include="Controllers\DocumentSetsController.cs" />
+    <Compile Include="Controllers\EmailSettingsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\VesselsController.cs" />
+    <Compile Include="Controllers\DocumentStatusesController.cs" />
+    <Compile Include="Controllers\DocumentTypesController.cs" />
+    <Compile Include="Controllers\CountriesController.cs" />
+    <Compile Include="Controllers\DocumentsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PartnersController.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Filters\BindToBaseAttribute.cs" />
+    <Compile Include="Filters\EnforcePasswordPolicyAttribute.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Filters\RequiredIfAttribute.cs" />
+    <Compile Include="Filters\ValidationAttributes.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBinders\DataTableModelBinder.cs" />
+    <Compile Include="ModelBinders\DecimalModelBinder.cs" />
+    <Compile Include="ModelBinders\GuidModelBinder.cs" />
+    <Compile Include="ModelBinders\ValueTextModelBinder.cs" />
+    <Compile Include="Models\Entities\Document.cs" />
+    <Compile Include="Models\Entities\User.cs" />
+    <Compile Include="Models\EntityViewModelServices\AreasService.cs" />
+    <Compile Include="Models\EntityViewModelServices\CategoriesService.cs" />
+    <Compile Include="Models\EntityViewModelServices\AccountService.cs" />
+    <Compile Include="Models\EntityViewModelServices\UserRolesService.cs" />
+    <Compile Include="Models\EntityViewModelServices\SubjectsService.cs" />
+    <Compile Include="Models\EntityViewModelServices\EmailTemplatesService.cs" />
+    <Compile Include="Models\EntityViewModelServices\DocumentSetsService.cs" />
+    <Compile Include="Models\EntityViewModelServices\EmailSettingsService.cs" />
+    <Compile Include="Models\EntityViewModelServices\UsersService.cs" />
+    <Compile Include="Models\Enums\SystemContactType.cs" />
+    <Compile Include="Models\Helpers\Constants.cs" />
+    <Compile Include="Models\Helpers\EmailTemplate.cs" />
+    <Compile Include="Models\Helpers\CustomEnums\MainMenu.cs" />
+    <Compile Include="Models\Helpers\ExceptionsHelper.cs" />
+    <Compile Include="Models\Helpers\LogHelper.cs" />
+    <Compile Include="Models\Helpers\MvcHelper.cs" />
+    <Compile Include="Models\Helpers\SystemRole.cs" />
+    <Compile Include="Models\Helpers\UsersHelper.cs" />
+    <Compile Include="Models\ListTemplate\UserRolesList.cs" />
+    <Compile Include="Models\ListTemplate\SubjectsList.cs" />
+    <Compile Include="Models\ListTemplate\EmailTemplatesList.cs" />
+    <Compile Include="Models\ListTemplate\DocumentSetsList.cs" />
+    <Compile Include="Models\ListTemplate\EmailSettingsList.cs" />
+    <Compile Include="Models\ListTemplate\UsersList.cs" />
+    <Compile Include="Models\ViewModels\AccountModels.cs" />
+    <Compile Include="Models\Entities\Contact.cs" />
+    <Compile Include="Models\Entities\EntityContext.cs" />
+    <Compile Include="Models\Entities\Company.cs" />
+    <Compile Include="Models\EntityViewModelServices\ContactTypesService.cs" />
+    <Compile Include="Models\EntityViewModelServices\TagsService.cs" />
+    <Compile Include="Models\EntityViewModelServices\DocumentStatusesService.cs" />
+    <Compile Include="Models\EntityViewModelServices\DocumentTypesService.cs" />
+    <Compile Include="Models\EntityViewModelServices\DocumentsService.cs" />
+    <Compile Include="Models\EntityViewModelServices\PartnersService.cs" />
+    <Compile Include="Models\EntityViewModelServices\VesselsService.cs" />
+    <Compile Include="Models\Helpers\DynamicQueryable.cs" />
+    <Compile Include="Models\Helpers\EmailResources.cs" />
+    <Compile Include="Models\Helpers\EmailSender.cs" />
+    <Compile Include="Models\Helpers\ListsHelper.cs" />
+    <Compile Include="Models\Helpers\Select2ListItem.cs" />
+    <Compile Include="Models\Helpers\SecurityHelper.cs" />
+    <Compile Include="Models\ListTemplate\Base\ActionButtonSettings.cs" />
+    <Compile Include="Models\ListTemplate\Base\BaseListTemplate.cs" />
+    <Compile Include="Models\ListTemplate\Base\Column.cs" />
+    <Compile Include="Models\ListTemplate\Base\UploadFileSettings.cs" />
+    <Compile Include="Models\ListTemplate\Base\DataTableProcessor.cs" />
+    <Compile Include="Models\ListTemplate\Base\DataTablesParam.cs" />
+    <Compile Include="Models\ListTemplate\Base\DateFilterSettings.cs" />
+    <Compile Include="Models\ListTemplate\Base\ExportType.cs" />
+    <Compile Include="Models\ListTemplate\Base\IListTemplate.cs" />
+    <Compile Include="Models\ListTemplate\Base\ListTemplateSettings.cs" />
+    <Compile Include="Models\ListTemplate\CategoriesList.cs" />
+    <Compile Include="Models\ListTemplate\AreasList.cs" />
+    <Compile Include="Models\ListTemplate\ContactTypesList.cs" />
+    <Compile Include="Models\ListTemplate\TagsList.cs" />
+    <Compile Include="Models\ListTemplate\VesselsList.cs" />
+    <Compile Include="Models\ListTemplate\DocumentStatusesList.cs" />
+    <Compile Include="Models\ListTemplate\DocumentTypesList.cs" />
+    <Compile Include="Models\ListTemplate\DocumentsList.cs" />
+    <Compile Include="Models\ListTemplate\PartnersList.cs" />
+    <Compile Include="Models\ListTemplate\ListTemplateFilters\Base\ListTemplateFilterProperties.cs" />
+    <Compile Include="Models\ListTemplate\ListTemplateFilters\Base\ListTemplateFilterSettings.cs" />
+    <Compile Include="Models\ListTemplate\ListTemplateFilters\ListTemplateFilter.cs" />
+    <Compile Include="Models\ListTemplate\ListTemplateFilters\UserStatus.cs" />
+    <Compile Include="Models\ListTemplate\ListTemplateGlobalActions\ListTemplateGlobalAction.cs" />
+    <Compile Include="Models\ListTemplate\ListTemplateGlobalActions\ListTemplateGlobalActionProperties.cs" />
+    <Compile Include="Models\ListTemplate\ListTemplateGlobalActions\ListTemplateGlobalActionSettings.cs" />
+    <Compile Include="Models\ViewModels\ContactModel.cs" />
+    <Compile Include="Models\ViewModels\CategoryModel.cs" />
+    <Compile Include="Models\ViewModels\AreaModel.cs" />
+    <Compile Include="Models\ViewModels\UserRoleModel.cs" />
+    <Compile Include="Models\ViewModels\EmailTemplatesModel.cs" />
+    <Compile Include="Models\ViewModels\DirectoryModel.cs" />
+    <Compile Include="Models\ViewModels\DocumentModel.cs" />
+    <Compile Include="Models\ViewModels\DocumentSetModel.cs" />
+    <Compile Include="Models\ViewModels\EmailSettingsModel.cs" />
+    <Compile Include="Models\ViewModels\PartnerModel.cs" />
+    <Compile Include="Models\ViewModels\SendDocumentsModel.cs" />
+    <Compile Include="Models\ViewModels\SubjectModel.cs" />
+    <Compile Include="Models\ViewModels\UserModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQuadro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQuadro.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ace-fonts.css" />
+    <Content Include="Content\ace-ie.css" />
+    <Content Include="Content\ace-rtl.css" />
+    <Content Include="Content\ace-skins.css" />
+    <Content Include="Content\ace.css" />
+    <Content Include="Content\bootstrap-wysihtml5.css" />
+    <Content Include="Content\bootstrap-editable.css" />
+    <Content Include="Content\bootstrap-modal.css" />
+    <Content Include="Content\bootstrap-timepicker.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\chosen.css" />
+    <Content Include="Content\colorbox.css" />
+    <Content Include="Content\colorpicker.css" />
+    <Content Include="Content\datepicker.css" />
+    <Content Include="Content\daterangepicker.css" />
+    <Content Include="Content\dropzone.css" />
+    <Content Include="Content\font-awesome-ie7.css" />
+    <Content Include="Content\font-awesome-ie7.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fullcalendar.css" />
+    <Content Include="Content\fullcalendar.print.css" />
+    <Content Include="Content\images\border.png" />
+    <Content Include="Content\images\border1.png" />
+    <Content Include="Content\images\border2.png" />
+    <Content Include="Content\images\controls.png" />
+    <Content Include="Content\images\ie6\borderBottomCenter.png" />
+    <Content Include="Content\images\ie6\borderBottomLeft.png" />
+    <Content Include="Content\images\ie6\borderBottomRight.png" />
+    <Content Include="Content\images\ie6\borderMiddleLeft.png" />
+    <Content Include="Content\images\ie6\borderMiddleRight.png" />
+    <Content Include="Content\images\ie6\borderTopCenter.png" />
+    <Content Include="Content\images\ie6\borderTopLeft.png" />
+    <Content Include="Content\images\ie6\borderTopRight.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\loading_background.png" />
+    <Content Include="Content\images\overlay.png" />
+    <Content Include="Content\img\alpha.png" />
+    <Content Include="Content\img\hue.png" />
+    <Content Include="Content\img\saturation.png" />
+    <Content Include="Content\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Content\jquery.gritter.css" />
+    <Content Include="Content\prettify.css" />
+    <Content Include="Content\select2-spinner.gif" />
+    <Content Include="Content\select2.css" />
+    <Content Include="Content\select2.png" />
+    <Content Include="Content\select2x2.png" />
+    <Content Include="Content\Site-dataTables-responsive.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Site-SignIn.css" />
+    <Content Include="font\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Site-listTemplate.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="images\border.png" />
+    <Content Include="images\border1.png" />
+    <Content Include="images\border2.png" />
+    <Content Include="images\controls.png" />
+    <Content Include="images\ie6\borderBottomCenter.png" />
+    <Content Include="images\ie6\borderBottomLeft.png" />
+    <Content Include="images\ie6\borderBottomRight.png" />
+    <Content Include="images\ie6\borderMiddleLeft.png" />
+    <Content Include="images\ie6\borderMiddleRight.png" />
+    <Content Include="images\ie6\borderTopCenter.png" />
+    <Content Include="images\ie6\borderTopLeft.png" />
+    <Content Include="images\ie6\borderTopRight.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\loading_background.png" />
+    <Content Include="images\overlay.png" />
+    <Content Include="img\alpha.png" />
+    <Content Include="img\hue.png" />
+    <Content Include="img\saturation.png" />
+    <Content Include="RecaptchaNet.Readme.txt" />
+    <Content Include="Scripts\ace-elements.js" />
+    <Content Include="Scripts\ace-extra.js" />
+    <Content Include="Scripts\ace.js" />
+    <Content Include="Scripts\additional-methods.js" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootstrap-colorpicker.js" />
+    <Content Include="Scripts\bootstrap-modal.js" />
+    <Content Include="Scripts\bootstrap-modalmanager.js" />
+    <Content Include="Scripts\bootstrap-tag.js" />
+    <Content Include="Scripts\bootstrap-wysiwyg.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\date-time\bootstrap-datepicker.js" />
+    <Content Include="Scripts\date-time\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\date-time\bootstrap-timepicker.js" />
+    <Content Include="Scripts\date-time\bootstrap-timepicker.min.js" />
+    <Content Include="Scripts\date-time\daterangepicker.js" />
+    <Content Include="Scripts\date-time\daterangepicker.min.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.uk.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\date-time\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Scripts\date-time\moment.js" />
+    <Content Include="Scripts\excanvas.js" />
+    <Content Include="Scripts\flot\jquery.flot.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.pie.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.resize.min.js" />
+    <Content Include="Scripts\FormScripts\globalsettings.js" />
+    <Content Include="Scripts\fuelux\data\fuelux.tree-sampledata.js" />
+    <Content Include="Scripts\fuelux\fuelux.spinner.min.js" />
+    <Content Include="Scripts\fuelux\fuelux.tree.min.js" />
+    <Content Include="Scripts\fuelux\fuelux.wizard.min.js" />
+    <Content Include="Scripts\fullcalendar.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-ar.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-bg.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-bg1251.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-cat.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-cs.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-da.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-de.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-dk.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-el.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-es.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-fa.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-fi.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-fr.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-gl.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-he.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-hr.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-hr1250.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-hu.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-id.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-is.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-it.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-ja.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-kr.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-lt.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-mne.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-nl.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-no.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-pl.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-pt-br.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-pt.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-ro.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-ru.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-sk.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-sr-latin.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-sr.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-sv.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-th.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-tr.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-tw.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-ua.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-vi.js" />
+    <Content Include="Scripts\jqGrid\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jquery-1.8.3-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.custom.js" />
+    <Content Include="Scripts\jquery.autosize.js" />
+    <Content Include="Scripts\jquery.bootstrap-growl.js" />
+    <Content Include="Scripts\jquery.colorbox.js" />
+    <Content Include="Scripts\jquery.dataTables.bootstrap.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.responsive.js" />
+    <Content Include="Scripts\jquery.easy-pie-chart.js" />
+    <Content Include="Scripts\jquery.gritter.js" />
+    <Content Include="Scripts\jquery.hotkeys.js" />
+    <Content Include="Scripts\jquery.inputlimiter.1.3.1.js" />
+    <Content Include="Scripts\jquery.knob.js" />
+    <Content Include="Scripts\jquery.maskedinput.js" />
+    <Content Include="Scripts\jquery.mobile.custom.js" />
+    <Content Include="Scripts\jquery.slimscroll.js" />
+    <Content Include="Scripts\jquery.sparkline.js" />
+    <Content Include="Scripts\jquery.ui.touch-punch.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\ListTemplate\userRolesList.js" />
+    <Content Include="Scripts\ListTemplate\subjectsList.js" />
+    <Content Include="Scripts\ListTemplate\emailTemplatesList.js" />
+    <Content Include="Scripts\ListTemplate\partnersSelectionList.js" />
+    <Content Include="Scripts\markdown\bootstrap-markdown.min.js" />
+    <Content Include="Scripts\markdown\markdown.min.js" />
+    <Content Include="Scripts\markdown\to-markdown.min.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\respond.src.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Scripts\wysihtml5-0.4.0pre.js" />
+    <Content Include="Scripts\x-editable\ace-editable.min.js" />
+    <Content Include="Scripts\x-editable\bootstrap-editable.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="SQuadro.edmx.sql" />
+    <Content Include="Scripts\dateFormat\dateFormat.js" />
+    <Content Include="Scripts\library\extensions.js" />
+    <Content Include="Scripts\ListTemplate\categoriesList.js" />
+    <Content Include="Scripts\ListTemplate\areasList.js" />
+    <Content Include="Scripts\ListTemplate\contactTypesList.js" />
+    <Content Include="Scripts\ListTemplate\tagsList.js" />
+    <Content Include="Scripts\ListTemplate\usersList.js" />
+    <Content Include="Scripts\ListTemplate\documentSetsList.js" />
+    <Content Include="Scripts\ListTemplate\documentsSelectionList.js" />
+    <Content Include="Scripts\ListTemplate\emailSettingsList.js" />
+    <Content Include="Scripts\ListTemplate\vesselsList.js" />
+    <Content Include="Scripts\ListTemplate\documentStatusesList.js" />
+    <Content Include="Scripts\ListTemplate\documentTypesList.js" />
+    <Content Include="Scripts\ListTemplate\documentsList.js" />
+    <Content Include="Scripts\ListTemplate\partnersList.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="CustomAttributes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="SQuadro.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SQuadro.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="font\fontawesome-webfont.eot" />
+    <Content Include="font\fontawesome-webfont.ttf" />
+    <Content Include="font\fontawesome-webfont.woff" />
+    <Content Include="font\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Partners\Details.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Contact.cshtml" />
+    <Content Include="Views\Partners\ContactsPartial.cshtml" />
+    <Content Include="Views\Shared\ListTemplateView.cshtml" />
+    <Content Include="Views\Shared\ListTemplateViewPartial.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Areas\Details.cshtml" />
+    <Content Include="Views\Partners\Contact.cshtml" />
+    <Content Include="Views\Documents\Details.cshtml" />
+    <Content Include="Views\ContactTypes\Details.cshtml" />
+    <Content Include="Views\DocumentTypes\Details.cshtml" />
+    <Content Include="Views\DocumentStatuses\Details.cshtml" />
+    <Content Include="Views\Tags\Details.cshtml" />
+    <Content Include="Views\Vessels\Details.cshtml" />
+    <Content Include="Views\Partners\SendDocuments.cshtml" />
+    <Content Include="Views\Shared\_LayoutAnonym.cshtml" />
+    <Content Include="Views\EmailSettings\Details.cshtml" />
+    <Content Include="Views\DocumentSets\Details.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Documents\DetailsPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\EmailTemplates\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Subjects\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Live.pubxml" />
+    <Content Include="Views\UserRoles\Details.cshtml" />
+    <None Include="Properties\PublishProfiles\s-quadro.org - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{41d0e81d-a568-46a5-8263-f2558fd33d82}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>33098</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:33098/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
